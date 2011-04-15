@@ -1,0 +1,25 @@
+# git ignore file
+
+# Use glob syntax
+syntax:glob
+
+# Build artifacts
+build
+debug
+release
+test
+*.o
+*.a
+
+# temp files
+tmp
+.DS_Store
+*.tmp
+*~
+
+# Service info
+gmon.out
+prof_report.txt
+
+# SCons build system
+.sconsign*

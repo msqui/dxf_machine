@@ -1,0 +1,11 @@
+Import('env')
+
+exec_name = 'dxf_parser'
+
+sources = [ Glob('*.cpp'), 
+            Glob('**/*.cpp'), 
+            Glob('**/**/*.cpp') ]
+
+libs = ['boost_filesystem', 'boost_system', 'boost_program_options']
+
+env.Program(exec_name, sources, LIBS = libs)
