@@ -10,6 +10,7 @@ namespace type {
 
 typedef CVTuple<std::string> DxfTupleT;
 typedef boost::shared_ptr<DxfTupleT> DxfTuplePtrT;
+typedef boost::shared_ptr<const DxfTupleT> DxfTupleConstPtrT;
 
 typedef std::queue<DxfTuplePtrT> DxfQueueT;
 
