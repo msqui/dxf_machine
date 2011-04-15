@@ -11,9 +11,13 @@ Dispatcher::Dispatcher(std::auto_ptr<type::DxfQueueT> q_ptr) :
 Dispatcher::~Dispatcher()
 {}
 
-type::DxfTupleConstPtrT
+type::DxfTuplePtrT
 Dispatcher::get() const
 {
+  if (_q_ptr->empty()) {
+    throw std::out_of_range("tuple queue is empty");
+  }
+  
   return _q_ptr->front();
 }
 
@@ -33,10 +37,7 @@ void Dispatcher::operator++ ()
 type::DxfTuplePtrT 
 Dispatcher::operator++ (int)
 {
-  if (_q_ptr->empty()) {
-    throw std::out_of_range("tuple queue is empty");
-  }
-  type::DxfTuplePtrT tuple = _q_ptr->front();
+  type::DxfTuplePtrT tuple = get();
   ++(*this);
   return tuple;
 }

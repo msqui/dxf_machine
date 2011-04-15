@@ -15,7 +15,7 @@ public:
   explicit Dispatcher(std::auto_ptr<type::DxfQueueT> q_ptr);
   virtual ~Dispatcher();
   
-  type::DxfTupleConstPtrT get() const;
+  type::DxfTuplePtrT get() const;
   bool empty() const;
   
   void operator++ ();

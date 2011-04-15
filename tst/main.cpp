@@ -2,6 +2,7 @@
 
 #include "type/CVTupleTest.hpp"
 #include "file/DxfFileTest.hpp"
+#include "dispatcher/DispatcherTest.hpp"
 
 int main(int argc, char** argv)
 {
