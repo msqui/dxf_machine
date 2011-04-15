@@ -10,6 +10,7 @@ namespace po = boost::program_options;
 #include "util/Messages.hpp"
 #include "type/types.hpp"
 #include "file/DxfFile.h"
+#include "dispatcher/Dispatcher.h"
 
 // ======================
 // = Usage help message =
@@ -100,9 +101,9 @@ int main(int argc, char **argv)
     return EXIT_FAILURE;
   }
   
-  while (!tuples->empty()) {
-    std::cout << *tuples->front() << std::endl;
-    tuples->pop();
+  dispatcher::Dispatcher d(tuples);
+  while (!d.empty()) {
+    std::cout << *((d++).get()) << std::endl;
   }
   
   return EXIT_SUCCESS;
