@@ -6,7 +6,9 @@
 #include "type/types.hpp"
 
 namespace dispatcher {
-
+/**
+ * Iterates through queue of tuples
+**/
 class Dispatcher : private boost::noncopyable
 {
 public:
