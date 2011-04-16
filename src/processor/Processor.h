@@ -4,7 +4,9 @@
 #include "dispatcher/Dispatcher.h"
 
 namespace processor {
-
+/**
+ * Defines how to process dispatcher's tuples
+**/
 class Processor
 {
 public:

@@ -6,7 +6,9 @@
 #include <iostream>
 
 namespace processor {
-
+/**
+ * Takes ostream and dumps all tuples from dispatcher to that stream
+**/
 class StreamProcessor : public Processor
 {
 public:
