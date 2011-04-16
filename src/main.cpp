@@ -11,7 +11,7 @@ namespace po = boost::program_options;
 #include "type/types.hpp"
 #include "file/DxfFile.h"
 #include "dispatcher/Dispatcher.h"
-#include "processor/StdoutProcessor.h"
+#include "processor/StreamProcessor.h"
 
 // ======================
 // = Usage help message =
@@ -103,7 +103,7 @@ int main(int argc, char **argv)
   }
   
   dispatcher::Dispatcher d(tuples);
-  processor::StdoutProcessor p;
+  processor::StreamProcessor p(std::cout);
   p.process(d);
   
   return EXIT_SUCCESS;
