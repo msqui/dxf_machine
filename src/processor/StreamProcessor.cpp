@@ -1,5 +1,7 @@
 #include "StreamProcessor.h"
 
+#include "dispatcher/Dispatcher.h"
+
 namespace processor {
 
 StreamProcessor::StreamProcessor(std::ostream& str) :

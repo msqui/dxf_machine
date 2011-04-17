@@ -1,7 +1,15 @@
 #ifndef __PROCESSOR__PROCESSOR_H__
 #define __PROCESSOR__PROCESSOR_H__
 
-#include "dispatcher/Dispatcher.h"
+
+// ====================
+// = Fwd declarations =
+// ====================
+namespace dispatcher {
+
+  class Dispatcher;
+
+} /* dispatcher */
 
 namespace processor {
 /**
