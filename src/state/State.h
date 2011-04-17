@@ -17,7 +17,10 @@ namespace state {
 class State
 {
 public:
+  virtual ~State();
+  
   virtual void process(type::DxfTuplePtrT tuple_ptr) = 0;
+  
 protected:
   void change_state(processor::StatefulProcessor* p, State* new_state);
 };

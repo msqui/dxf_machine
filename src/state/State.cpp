@@ -4,6 +4,9 @@
 
 namespace state {
 
+State::~State()
+{}
+
 /**
  * Default process tuple realisation
 **/
