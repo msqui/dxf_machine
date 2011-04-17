@@ -9,7 +9,9 @@ StatefulProcessor::StatefulProcessor(state::State* state) :
 {}
 
 void StatefulProcessor::process_tuple(type::DxfTuplePtrT tuple_ptr)
-{}
+{
+  _current_state->process(tuple_ptr);
+}
 
 void StatefulProcessor::change_state(state::State* new_state)
 {
