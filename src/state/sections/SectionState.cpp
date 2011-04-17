@@ -10,7 +10,7 @@
 namespace state {
 namespace sections {
 
-SectionState* SectionState::_instance = NULL;
+SectionState::PtrT SectionState::_instance = SectionState::PtrT();
 
 State::JumpMapT
 SectionState::_jump_map = boost::assign::map_list_of<type::DxfTupleT, state::State*>
@@ -24,10 +24,10 @@ SectionState::~SectionState()
 
 SectionState* SectionState::Instance()
 {
-  if (!_instance) {
-    _instance = new SectionState;
+  if (!_instance.get()) {
+    _instance = SectionState::PtrT(new SectionState);
   }
-  return _instance;
+  return _instance.get();
 }
 
 void SectionState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p)

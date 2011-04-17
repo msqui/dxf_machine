@@ -3,14 +3,14 @@
 namespace state {
 namespace entities {
 
-CircleState* CircleState::_instance = NULL;
+CircleState::PtrT CircleState::_instance = CircleState::PtrT();
 
 CircleState* CircleState::Instance()
 {
-  if (!_instance) {
-    _instance = new CircleState;
+  if (!_instance.get()) {
+    _instance = CircleState::PtrT(new CircleState);
   }
-  return _instance;
+  return _instance.get();
 }
 
 void CircleState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p)

@@ -3,14 +3,14 @@
 namespace state {
 namespace entities {
 
-LineState* LineState::_instance = NULL;
+LineState::PtrT LineState::_instance = LineState::PtrT();
 
 LineState* LineState::Instance()
 {
-  if (!_instance) {
-    _instance = new LineState;
+  if (!_instance.get()) {
+    _instance = LineState::PtrT(new LineState);
   }
-  return _instance;
+  return _instance.get();
 }
 
 void LineState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p)

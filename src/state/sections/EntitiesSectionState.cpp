@@ -9,7 +9,7 @@
 namespace state {
 namespace sections {
 
-EntitiesSectionState* EntitiesSectionState::_instance = NULL;
+EntitiesSectionState::PtrT EntitiesSectionState::_instance = EntitiesSectionState::PtrT();
 
 State::JumpMapT
 EntitiesSectionState::_jump_map = boost::assign::map_list_of<type::DxfTupleT, state::State*>
@@ -18,12 +18,15 @@ EntitiesSectionState::_jump_map = boost::assign::map_list_of<type::DxfTupleT, st
   (type::DxfTupleT(0, "LWPOLYLINE"),  state::entities::LwPolylineState::Instance())
   ;
 
+EntitiesSectionState::~EntitiesSectionState()
+{}
+
 EntitiesSectionState* EntitiesSectionState::Instance()
 {
-  if (!_instance) {
-    _instance = new EntitiesSectionState;
+  if (!_instance.get()) {
+    _instance = EntitiesSectionState::PtrT(new EntitiesSectionState);
   }
-  return _instance;
+  return _instance.get();
 }
 
 void EntitiesSectionState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p)

@@ -15,7 +15,9 @@ public:
   virtual void process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p);
   
 private:
-  static std::auto_ptr<ReadyState> _instance;
+  typedef std::auto_ptr<ReadyState> PtrT;
+  
+  static PtrT _instance;
   
   static State::JumpMapT _jump_map;
 };

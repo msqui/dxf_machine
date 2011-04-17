@@ -3,14 +3,14 @@
 namespace state {
 namespace sections {
 
-HeaderSectionState* HeaderSectionState::_instance = NULL;
+HeaderSectionState::PtrT HeaderSectionState::_instance = HeaderSectionState::PtrT();
 
 HeaderSectionState* HeaderSectionState::Instance()
 {
-  if (!_instance) {
-    _instance = new HeaderSectionState;
+  if (!_instance.get()) {
+    _instance = HeaderSectionState::PtrT(new HeaderSectionState);
   }
-  return _instance;
+  return _instance.get();
 }
 
 void HeaderSectionState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p)

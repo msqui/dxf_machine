@@ -3,6 +3,8 @@
 
 #include "State.h"
 
+#include <memory>
+
 namespace state {
 
 class EndState : public State
@@ -13,7 +15,9 @@ public:
   virtual void process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor*);
   
 private:
-  static EndState* _instance;
+  typedef std::auto_ptr<EndState> PtrT;
+  
+  static PtrT _instance;
 };
 
 } /* state */

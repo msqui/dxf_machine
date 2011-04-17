@@ -2,14 +2,14 @@
 
 namespace state {
 
-EndState* EndState::_instance = NULL;
+EndState::PtrT EndState::_instance = EndState::PtrT();
 
 EndState* EndState::Instance()
 {
-  if (!_instance) {
-    _instance = new EndState;
+  if (!_instance.get()) {
+    _instance = EndState::PtrT(new EndState);
   }
-  return _instance;
+  return _instance.get();
 }
 
 void EndState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor*)

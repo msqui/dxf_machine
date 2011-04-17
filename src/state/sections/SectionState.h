@@ -3,6 +3,8 @@
 
 #include "state/State.h"
 
+#include <memory>
+
 namespace state {
 namespace sections {
 
@@ -16,7 +18,8 @@ public:
   virtual void process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p);
   
 private:
-  static SectionState* _instance;
+  typedef std::auto_ptr<SectionState> PtrT;
+  static PtrT _instance;
   static State::JumpMapT _jump_map;
 };
 

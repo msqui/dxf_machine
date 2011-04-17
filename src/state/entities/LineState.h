@@ -3,6 +3,8 @@
 
 #include "EntityState.h"
 
+#include <memory>
+
 namespace state {
 namespace entities {
 
@@ -14,7 +16,9 @@ public:
   void process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p);
   
 private:
-  static LineState* _instance;
+  typedef std::auto_ptr<LineState> PtrT;
+  
+  static PtrT _instance;
 };
 
 } /* entities */

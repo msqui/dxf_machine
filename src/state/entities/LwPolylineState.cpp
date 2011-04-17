@@ -3,14 +3,14 @@
 namespace state {
 namespace entities {
 
-LwPolylineState* LwPolylineState::_instance = NULL;
+LwPolylineState::PtrT LwPolylineState::_instance = LwPolylineState::PtrT();
 
 LwPolylineState* LwPolylineState::Instance()
 {
-  if (!_instance) {
-    _instance = new LwPolylineState;
+  if (!_instance.get()) {
+    _instance = LwPolylineState::PtrT(new LwPolylineState);
   }
-  return _instance;
+  return _instance.get();
 }
 
 void LwPolylineState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p)

@@ -6,7 +6,7 @@
 
 namespace state {
 
-std::auto_ptr<ReadyState> ReadyState::_instance = std::auto_ptr<ReadyState>();
+ReadyState::PtrT ReadyState::_instance = ReadyState::PtrT();
 
 State::JumpMapT
 ReadyState::_jump_map = boost::assign::map_list_of<type::DxfTupleT, state::State*>
@@ -17,7 +17,7 @@ ReadyState::_jump_map = boost::assign::map_list_of<type::DxfTupleT, state::State
 ReadyState* ReadyState::Instance()
 {
   if (!_instance.get()) {
-    _instance = std::auto_ptr<ReadyState>(new ReadyState);
+    _instance = ReadyState::PtrT(new ReadyState);
   }
   return _instance.get();
 }
