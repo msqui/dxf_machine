@@ -1,6 +1,7 @@
 #ifndef __PROCESSOR__PROCESSOR_H__
 #define __PROCESSOR__PROCESSOR_H__
 
+#include <type/types.hpp>
 
 // ====================
 // = Fwd declarations =
@@ -21,7 +22,9 @@ public:
   Processor() {}
   virtual ~Processor() {}
   
-  virtual void process(dispatcher::Dispatcher& dispatcher) = 0;
+  void start(dispatcher::Dispatcher& dispatcher);
+  
+  virtual void process_tuple(type::DxfTuplePtrT tuple_ptr) = 0;
 };
 
 } /* processor */

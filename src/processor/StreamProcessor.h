@@ -14,7 +14,7 @@ class StreamProcessor : public Processor
 public:
   explicit StreamProcessor(std::ostream& str);
   
-  void process(dispatcher::Dispatcher& dispatcher);
+  void process_tuple(type::DxfTuplePtrT tuple_ptr);
   
 private:
   std::ostream& _str;

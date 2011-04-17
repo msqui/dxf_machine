@@ -104,7 +104,7 @@ int main(int argc, char **argv)
   
   dispatcher::Dispatcher d(tuples);
   processor::StreamProcessor p(std::cout);
-  p.process(d);
+  p.start(d);
   
   return EXIT_SUCCESS;
 }
