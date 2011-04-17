@@ -1,6 +1,7 @@
 #include "StatefulProcessor.h"
 
 #include "state/State.h"
+#include "exception/state/bad_state.h"
 
 namespace processor {
 
@@ -15,6 +16,9 @@ void StatefulProcessor::process_tuple(type::DxfTuplePtrT tuple_ptr)
 
 void StatefulProcessor::change_state(state::State* new_state)
 {
+  if (!new_state) {
+    throw exception::state::bad_state("state is null");
+  }
   _current_state = new_state;
 }
 
