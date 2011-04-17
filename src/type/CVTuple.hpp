@@ -5,14 +5,12 @@
 #include <string>
 #include <sstream>
 
-#include <boost/utility.hpp>
-
 namespace type {
 /**
  * Code-Value tuple template
 **/
 template <typename ValT>
-class CVTuple : private boost::noncopyable
+class CVTuple
 {
 public:
   CVTuple(int code, const ValT& value) :

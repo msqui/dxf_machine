@@ -1,7 +1,9 @@
 #ifndef __STATE__STATE_H__
 #define __STATE__STATE_H__
 
-#include <type/types.hpp>
+#include <map>
+
+#include "type/types.hpp"
 
 // ====================
 // = Fwd declarations =
@@ -19,10 +21,15 @@ class State
 public:
   virtual ~State();
   
-  virtual void process(type::DxfTuplePtrT tuple_ptr) = 0;
+  virtual void process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p) = 0;
   
 protected:
+  typedef std::map<type::DxfTupleT, State*> JumpMapT;
+  typedef JumpMapT::const_iterator JumpIterT;
+  
   void change_state(processor::StatefulProcessor* p, State* new_state);
+  
+  State() {}
 };
 
 } /* state */

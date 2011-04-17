@@ -12,6 +12,7 @@ namespace po = boost::program_options;
 #include "file/DxfFile.h"
 #include "dispatcher/Dispatcher.h"
 #include "processor/StreamProcessor.h"
+#include "processor/StatefulProcessor.h"
 
 // ======================
 // = Usage help message =
@@ -90,8 +91,11 @@ int main(int argc, char **argv)
   // ===================
   // = File processing =
   // ===================
+  
+  // Welcome message
   std::cout << "Dxf Machine started." << std::endl;
   
+  // Get tuples from file
   std::auto_ptr<type::DxfQueueT> tuples;
   try {
     std::auto_ptr<file::DxfFile> file_ptr = file::DxfFile::open_file(input_file);
@@ -102,8 +106,10 @@ int main(int argc, char **argv)
     return EXIT_FAILURE;
   }
   
+  // Process tuples
   dispatcher::Dispatcher d(tuples);
-  processor::StreamProcessor p(std::cout);
+  // processor::StreamProcessor p(std::cout);
+  processor::StatefulProcessor p;
   p.start(d);
   
   return EXIT_SUCCESS;

@@ -17,7 +17,7 @@ namespace processor {
 class StatefulProcessor : public Processor
 {
 public:
-  explicit StatefulProcessor(state::State* state);
+  explicit StatefulProcessor(state::State* state = NULL);
   
   void process_tuple(type::DxfTuplePtrT tuple_ptr);
   
