@@ -3,6 +3,8 @@
 #include <string>
 #include <memory>
 #include <stdexcept>
+#include <functional>
+#include <algorithm>
 
 #include <boost/program_options.hpp>
 namespace po = boost::program_options;
@@ -13,6 +15,9 @@ namespace po = boost::program_options;
 #include "dispatcher/Dispatcher.h"
 #include "processor/StreamProcessor.h"
 #include "processor/StatefulProcessor.h"
+
+#include "model/Model.h"
+#include "model/entities/Entity.h"
 
 // ======================
 // = Usage help message =
@@ -25,6 +30,17 @@ void usage(const std::string& message, const po::options_description& desc)
   
   std::cout << desc << std::endl;
 }
+
+// ========================
+// = Entity print functor =
+// ========================
+struct print_entity : public std::unary_function<model::entities::Entity, void>
+{
+  void operator() (model::entities::Entity& ent)
+  {
+    std::cout << ent << std::endl;
+  }
+};
 
 // ================
 // = Main program =
@@ -111,6 +127,11 @@ int main(int argc, char **argv)
   // processor::StreamProcessor p(std::cout);
   processor::StatefulProcessor p;
   p.start(d);
+  
+  // Show model
+  model::Model* model = p.get_model();
+  std::cout << "Result:" << std::endl;
+  std::for_each(model->entities()->begin(), model->entities()->end(), print_entity());
   
   return EXIT_SUCCESS;
 }
