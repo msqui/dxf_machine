@@ -3,6 +3,8 @@
 
 #include "Entity.h"
 
+#include "type/types.hpp"
+
 namespace model {
 namespace entities {
 
@@ -10,6 +12,9 @@ class Circle : public Entity
 {
 public:
   Circle();
+  
+  type::Point3d center;
+  double radius;
   
 protected:
   std::ostream& put(std::ostream& str) const;

@@ -5,7 +5,9 @@ namespace entities {
 
 Circle::Circle()
 {
-  std::cout << "Circle created" << std::endl;
+  #ifdef DEBUG
+    std::cout << "Circle created" << std::endl;
+  #endif
 }
 
 std::ostream& Circle::put(std::ostream& str) const
