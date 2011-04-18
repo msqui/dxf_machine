@@ -5,6 +5,9 @@
 
 #include <memory>
 
+#include "model/entities/Entity.h"
+#include "model/entities/EntityFactory.hpp"
+
 namespace state {
 namespace sections {
 
@@ -20,7 +23,12 @@ public:
 private:
   typedef std::auto_ptr<EntitiesSectionState> PtrT;
   static PtrT _instance;
-  static State::JumpMapT _jump_map;
+  
+  // static State::JumpMapT _jump_map;
+  typedef std::map<type::DxfTupleT, std::pair<State*, model::entities::EntityFactoryBase*> > EntJumpMapT;
+  typedef EntJumpMapT::const_iterator EntJumpIterT;
+  
+  static EntJumpMapT _jump_map;
 };
 
 } /* sections */
