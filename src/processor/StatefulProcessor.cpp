@@ -6,7 +6,8 @@
 
 namespace processor {
 
-StatefulProcessor::StatefulProcessor(state::State* state)
+StatefulProcessor::StatefulProcessor(state::State* state) :
+  _model_ptr(std::auto_ptr<model::Model>(new model::Model))
 {
   if (state) {
     _current_state = state;
@@ -18,6 +19,16 @@ StatefulProcessor::StatefulProcessor(state::State* state)
 void StatefulProcessor::process_tuple(type::DxfTuplePtrT tuple_ptr)
 {
   _current_state->process(tuple_ptr, this);
+}
+
+void StatefulProcessor::add_entity(model::entities::Entity* ent)
+{
+  _model_ptr->entities()->push_back(ent);
+}
+
+model::entities::Entity& StatefulProcessor::current_entity()
+{
+  return _model_ptr->entities()->back();
 }
 
 void StatefulProcessor::change_state(state::State* new_state)

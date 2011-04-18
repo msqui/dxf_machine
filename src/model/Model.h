@@ -2,14 +2,29 @@
 #define __MODEL__MODEL_H__
 
 #include <vector>
+#include <memory>
+
+#include <boost/utility.hpp>
+#include <boost/ptr_container/ptr_vector.hpp>
+
+#include "entities/Entity.h"
 
 namespace model {
 /**
  * struct of object collections
 **/
-struct Model
+class Model : private boost::noncopyable
 {
-  std::vector<entities::Entity> entities;
+public:
+  typedef boost::ptr_vector<entities::Entity> EntVecT;
+  typedef std::auto_ptr<EntVecT> EntVecPtrT;
+  
+  Model();
+  
+  EntVecT* entities();
+  
+private:
+  EntVecPtrT _entities;
 };
 
 } /* model */
