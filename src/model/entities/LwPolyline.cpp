@@ -1,5 +1,7 @@
 #include "LwPolyline.h"
 
+#include <algorithm>
+
 namespace model {
 namespace entities {
 
@@ -12,7 +14,8 @@ LwPolyline::LwPolyline()
 
 std::ostream& LwPolyline::put(std::ostream& str) const
 {
-  str << "LwPolyline";
+  str << "LwPolyline" << "\n";
+  std::for_each(points.begin(), points.end(), print_points(str));
   return str;
 }
 

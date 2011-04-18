@@ -36,7 +36,7 @@ void usage(const std::string& message, const po::options_description& desc)
 // ========================
 struct print_entity : public std::unary_function<model::entities::Entity, void>
 {
-  void operator() (model::entities::Entity& ent)
+  void operator() (const model::entities::Entity& ent)
   {
     std::cout << ent << std::endl;
   }

@@ -4,6 +4,8 @@
 #include "Entity.h"
 
 #include <vector>
+#include <iostream>
+#include <functional>
 
 #include "type/types.hpp"
 
@@ -19,6 +21,19 @@ public:
   
 protected:
   std::ostream& put(std::ostream& str) const;
+  
+  struct print_points : public std::unary_function<type::Point3d, void>
+  {
+    std::ostream& _ostr;
+    
+    print_points(std::ostream& ostr) : _ostr(ostr) {}
+    
+    void operator() (const type::Point3d& p3d)
+    {
+      _ostr << "\t" << p3d << "\n";
+    }
+    
+  };
 };
 
 } /* entities */

@@ -22,8 +22,8 @@ struct _Point3d
   {
     str << "( " << p3d.x << " ; "
                 << p3d.y << " ; "
-                << p3d.z << " ; "
-        << ")";
+                << p3d.z
+        << " )";
     
     return str;
   }

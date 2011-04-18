@@ -12,7 +12,9 @@ Line::Line()
 
 std::ostream& Line::put(std::ostream& str) const
 {
-  str << "Line";
+  str << "Line" << "\n"
+      << "\tbegin: " << start << "\n"
+      << "\tend: " << end << "\n";
   return str;
 }
 

@@ -12,7 +12,9 @@ Circle::Circle()
 
 std::ostream& Circle::put(std::ostream& str) const
 {
-  str << "Circle";
+  str << "Circle" << "\n"
+      << "\tcenter: " << center << "\n"
+      << "\tradius: " << radius << "\n";
   return str;
 }
 
