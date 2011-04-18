@@ -18,6 +18,7 @@ StatefulProcessor::StatefulProcessor(state::State* state) :
 
 void StatefulProcessor::process_tuple(type::DxfTuplePtrT tuple_ptr)
 {
+  assert(_model_ptr.get() != NULL);
   _current_state->process(tuple_ptr, this);
 }
 
@@ -29,6 +30,12 @@ void StatefulProcessor::add_entity(model::entities::Entity* ent)
 model::entities::Entity& StatefulProcessor::current_entity()
 {
   return _model_ptr->entities()->back();
+}
+
+model::Model* StatefulProcessor::get_model()
+{
+  assert(_model_ptr.get() != NULL);
+  return _model_ptr.release();
 }
 
 void StatefulProcessor::change_state(state::State* new_state)

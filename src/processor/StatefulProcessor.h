@@ -29,6 +29,8 @@ public:
   void add_entity(model::entities::Entity* ent);
   model::entities::Entity& current_entity();
   
+  model::Model* get_model();
+  
 private:
   state::State* _current_state;
   
