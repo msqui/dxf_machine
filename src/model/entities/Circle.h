@@ -8,6 +8,9 @@ namespace entities {
 
 class Circle : public Entity
 {
+public:
+  Circle();
+  
 protected:
   std::ostream& put(std::ostream& str) const;
 };
