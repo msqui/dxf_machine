@@ -42,7 +42,7 @@ protected:
 
 TEST_F(StreamProcessorTest, process)
 {
-  p_ptr->process(*d_ptr);
+  p_ptr->start(*d_ptr);
   
   std::string str;
   std::getline(sstr, str);
