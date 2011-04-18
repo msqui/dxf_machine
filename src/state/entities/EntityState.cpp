@@ -11,7 +11,15 @@ EntityState::~EntityState()
 **/
 void EntityState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p)
 {
-  sections::EntitiesSectionState::process(tuple_ptr, p);
+  switch (tuple_ptr->code()) {
+    case 8:
+      // Layer name
+      std::cout << "Layer name: " << tuple_ptr->value() << std::endl;
+      break;
+    default:
+      sections::EntitiesSectionState::process(tuple_ptr, p);
+      break;
+  }
 }
 
 } /* entities */
