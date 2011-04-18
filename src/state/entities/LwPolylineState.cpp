@@ -28,12 +28,16 @@ void LwPolylineState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulP
   double value;
   switch (tuple_ptr->code()) {
     case 10:
-      std::cout << "LwPolyline 10: " << tuple_ptr->value() << std::endl;
+      #ifdef DEBUG
+        std::cout << "LwPolyline 10: " << tuple_ptr->value() << std::endl;
+      #endif
       value = boost::lexical_cast<double>(tuple_ptr->value());
       dynamic_cast<me::LwPolyline&>(p->current_entity()).points.push_back(type::Point3d(value));
       break;
     case 20:
-      std::cout << "LwPolyline 20: " << tuple_ptr->value() << std::endl;
+      #ifdef DEBUG
+        std::cout << "LwPolyline 20: " << tuple_ptr->value() << std::endl;
+      #endif
       value = boost::lexical_cast<double>(tuple_ptr->value());
       dynamic_cast<me::LwPolyline&>(p->current_entity()).points.back().y = value;
       break;

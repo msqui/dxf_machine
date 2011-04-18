@@ -109,7 +109,9 @@ int main(int argc, char **argv)
   // ===================
   
   // Welcome message
-  std::cout << "Dxf Machine started." << std::endl;
+  #ifdef DEBUG
+    std::cout << "Dxf Machine started." << std::endl;
+  #endif
   
   // Get tuples from file
   std::auto_ptr<type::DxfQueueT> tuples;

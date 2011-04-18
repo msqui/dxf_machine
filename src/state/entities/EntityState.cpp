@@ -13,8 +13,9 @@ void EntityState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProce
 {
   switch (tuple_ptr->code()) {
     case 8:
-      // Layer name
-      std::cout << "Layer name: " << tuple_ptr->value() << std::endl;
+      #ifdef DEBUG
+        std::cout << "Layer name: " << tuple_ptr->value() << std::endl;
+      #endif
       break;
     default:
       sections::EntitiesSectionState::process(tuple_ptr, p);
