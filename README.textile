@@ -1,0 +1,1 @@
+Simple "Autodesk(R)":http://www.autodesk.com AutoCAD "DXF":http://en.wikipedia.org/wiki/AutoCAD_DXF format parser
