@@ -12,19 +12,17 @@ namespace {
 class CircleTest : public ::testing::Test
 {
 protected:
-  void SetUp()
-  {
+    void SetUp()
+    { }
     
-  }
-  
-  std::stringstream sstr;
-  model::entities::Circle circle;
+    std::stringstream sstr;
+    model::entities::Circle circle;
 };
 
 TEST_F(CircleTest, ostr)
 {
-  sstr << circle;
-  ASSERT_EQ("Circle", sstr.str());
+    sstr << circle;
+    ASSERT_EQ("Circle", sstr.str());
 }
 
 }

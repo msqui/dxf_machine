@@ -12,19 +12,17 @@ namespace {
 class LwPolylineTest : public ::testing::Test
 {
 protected:
-  void SetUp()
-  {
+    void SetUp()
+    { }
     
-  }
-  
-  std::stringstream sstr;
-  model::entities::LwPolyline lw_polyline;
+    std::stringstream sstr;
+    model::entities::LwPolyline lw_polyline;
 };
 
 TEST_F(LwPolylineTest, ostr)
 {
-  sstr << lw_polyline;
-  ASSERT_EQ("LwPolyline", sstr.str());
+    sstr << lw_polyline;
+    ASSERT_EQ("LwPolyline", sstr.str());
 }
 
 }

@@ -8,14 +8,14 @@ namespace util {
 class Messages
 {
 public:
-  static const std::string usage;
-  static const std::string version;
-  static const std::string no_files_to_process;
+    static const std::string usage;
+    static const std::string version;
+    static const std::string no_files_to_process;
 
 private:
-  Messages ();
-  Messages (const Messages&);
-  void operator= (const Messages&);
+    Messages ();
+    Messages (const Messages&);
+    void operator= (const Messages&);
 };
 
 const std::string Messages::usage = "Usage: \n\tentities_parser [OPTIONS] <input file>";

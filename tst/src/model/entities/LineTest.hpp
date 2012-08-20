@@ -12,19 +12,17 @@ namespace {
 class LineTest : public ::testing::Test
 {
 protected:
-  void SetUp()
-  {
+    void SetUp()
+    { }
     
-  }
-  
-  std::stringstream sstr;
-  model::entities::Line line;
+    std::stringstream sstr;
+    model::entities::Line line;
 };
 
 TEST_F(LineTest, ostr)
 {
-  sstr << line;
-  ASSERT_EQ("Line", sstr.str());
+    sstr << line;
+    ASSERT_EQ("Line", sstr.str());
 }
 
 }
