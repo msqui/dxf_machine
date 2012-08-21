@@ -6,6 +6,7 @@
 #include <boost/program_options.hpp>
 namespace po = boost::program_options;
 
+namespace dm { namespace frontend {
 namespace util {
 
 class Util
@@ -21,5 +22,6 @@ private:
 };
 
 }
+}}
 
 #endif // __UTIL__UTIL_H__

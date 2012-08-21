@@ -7,6 +7,7 @@
 
 #include "util/Util.h"
 #include "exception/silent_exit.h"
+namespace f = dm::frontend;
 
 #include "type/types.hpp"
 #include "file/DxfFile.h"
@@ -28,8 +29,8 @@ int main(int argc, char **argv)
     std::string input_file;
 
     try {
-        util::Util::parse_options(argc, argv, input_file);
-    } catch (const exception::silent_exit& exc) {
+        f::util::Util::parse_options(argc, argv, input_file);
+    } catch (const f::exception::silent_exit& exc) {
         std::cout << exc.what() << std::endl;
         return EXIT_SUCCESS;
     } catch (const std::exception& exc) {
