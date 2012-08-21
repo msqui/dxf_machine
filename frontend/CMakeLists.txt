@@ -9,9 +9,10 @@ find_package(
   REQUIRED program_options
 )
 
-# add_definitions("-std=c++0x")
+add_definitions("-std=c++0x")
 
 include_directories(
+  src
   ../${LIB_SUBDIR}/src
   ${Boost_INCLUDE_DIRS}
 )

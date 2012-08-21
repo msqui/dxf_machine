@@ -2,14 +2,12 @@
 #include <cstdlib>
 #include <string>
 #include <memory>
-#include <stdexcept>
-#include <functional>
+#include <exception>
 #include <algorithm>
 
-#include <boost/program_options.hpp>
-namespace po = boost::program_options;
+#include "util/Util.h"
+#include "exception/silent_exit.h"
 
-#include "util/Messages.hpp"
 #include "type/types.hpp"
 #include "file/DxfFile.h"
 #include "dispatcher/Dispatcher.h"
@@ -18,29 +16,6 @@ namespace po = boost::program_options;
 
 #include "model/Model.h"
 #include "model/entities/Entity.h"
-
-// ======================
-// = Usage help message =
-// ======================
-void usage(const std::string& message, const po::options_description& desc)
-{
-    std::cout << std::endl
-              << message
-              << std::endl;
-    
-    std::cout << desc << std::endl;
-}
-
-// ========================
-// = Entity print functor =
-// ========================
-struct print_entity : public std::unary_function<model::entities::Entity, void>
-{
-    void operator() (const model::entities::Entity& ent)
-    {
-        std::cout << ent << std::endl;
-    }
-};
 
 // ================
 // = Main program =
@@ -51,49 +26,12 @@ int main(int argc, char **argv)
     // = Config options =
     // ==================
     std::string input_file;
-    
-    // ===========================
-    // = Command line processing =
-    // ===========================
+
     try {
-        po::options_description main_desc("Mandatory params");
-        main_desc.add_options()
-            ("input-file,i", po::value<std::string>(&input_file), "input dxf file")
-            ;
-        
-        po::options_description help_desc("Help");
-        help_desc.add_options()
-            ("help,h", "produce help message")
-            ("version,v", "display program version")
-            ;
-        
-        po::options_description desc("");
-        desc.add(main_desc).add(help_desc);
-        
-        po::positional_options_description p;
-        p.add("input-file", -1);
-        
-        po::variables_map vm;
-        po::store(po::command_line_parser(argc, argv).
-                    options(desc).positional(p).run(), vm);
-        po::notify(vm);
-        
-        if(vm.count("help"))
-        {
-            usage(util::Messages::usage, desc);
-            return EXIT_SUCCESS;
-        }
-        if(vm.count("version"))
-        {
-            std::cout << "dxf_machine version " << util::Messages::version << std::endl;
-            return EXIT_SUCCESS;
-        }
-        
-        if(!vm.count("input-file"))
-        {
-            std::cerr << util::Messages::no_files_to_process << std::endl;
-            return EXIT_FAILURE;
-        }
+        util::Util::parse_options(argc, argv, input_file);
+    } catch (const exception::silent_exit& exc) {
+        std::cout << exc.what() << std::endl;
+        return EXIT_SUCCESS;
     } catch (const std::exception& exc) {
         std::cerr << "Error: " << exc.what() << std::endl;
         return EXIT_FAILURE;
@@ -130,7 +68,10 @@ int main(int argc, char **argv)
     // Show model
     model::Model* model = p.get_model();
     std::cout << "Result:" << std::endl;
-    std::for_each(model->entities()->begin(), model->entities()->end(), print_entity());
+    std::for_each(model->entities()->begin(), model->entities()->end(),
+            [](const model::entities::Entity& ent) {
+                std::cout << ent << std::endl;
+            });
     
     return EXIT_SUCCESS;
 }
