@@ -7,6 +7,8 @@
 
 #include "model/entities/LwPolyline.h"
 
+using namespace dxf_machine;
+
 namespace {
 
 class LwPolylineTest : public ::testing::Test

@@ -5,26 +5,26 @@
 
 #include "type/types.hpp"
 
-namespace dispatcher {
+namespace dxf_machine { namespace dispatcher {
 /**
  * Iterates through queue of tuples
 **/
 class Dispatcher : private boost::noncopyable
 {
 public:
-  explicit Dispatcher(std::auto_ptr<type::DxfQueueT> q_ptr);
-  virtual ~Dispatcher();
-  
-  type::DxfTuplePtrT get() const;
-  bool empty() const;
-  
-  void operator++ ();
-  type::DxfTuplePtrT operator++ (int);
+    explicit Dispatcher(type::DxfQueuePtrT q_ptr);
+    virtual ~Dispatcher();
+    
+    type::DxfTuplePtrT get() const;
+    bool empty() const;
+    
+    void operator++ ();
+    type::DxfTuplePtrT operator++ (int);
   
 protected:
-  std::auto_ptr<type::DxfQueueT> _q_ptr;
+    type::DxfQueuePtrT _q_ptr;
 };
 
-} /* dispatcher */
+}}
 
-#endif /* end of include guard: __DISPATCHER__DISPATCHER_H__ */
+#endif // __DISPATCHER__DISPATCHER_H__

@@ -1,11 +1,12 @@
-#ifndef __ENTITIES__LWPOLYLINESTATE_H__
-#define __ENTITIES__LWPOLYLINESTATE_H__
+#ifndef __STATE__ENTITIES__LWPOLYLINESTATE_H__
+#define __STATE__ENTITIES__LWPOLYLINESTATE_H__
 
 #include "EntityState.h"
 
 #include <memory>
 
-namespace state {
+namespace dxf_machine { namespace state {
+
 namespace entities {
 
 class LwPolylineState : public EntityState
@@ -21,7 +22,8 @@ private:
   static PtrT _instance;
 };
 
-} /* entities */
-} /* state */
+}
 
-#endif /* end of include guard: __ENTITIES__LWPOLYLINESTATE_H__ */
+}}
+
+#endif // __STATE__ENTITIES__LWPOLYLINESTATE_H__

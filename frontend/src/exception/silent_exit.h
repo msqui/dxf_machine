@@ -3,7 +3,8 @@
 
 #include <stdexcept>
 
-namespace dm { namespace frontend {
+namespace dxf_machine { namespace frontend {
+
 namespace exception {
 
 struct silent_exit : public std::runtime_error
@@ -14,6 +15,7 @@ struct silent_exit : public std::runtime_error
 };
 
 }
+
 }}
 
 #endif // __EXCEPTION__SILENT_EXIT_H__

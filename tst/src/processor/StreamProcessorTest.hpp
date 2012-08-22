@@ -16,20 +16,20 @@
 
 #include "Paths.hpp"
 
+using namespace dxf_machine;
+
 namespace {
 
 class StreamProcessorTest : public ::testing::Test
 {
-    typedef std::auto_ptr<type::DxfQueueT> DxfQueuePtrT;
-    typedef std::auto_ptr<file::DxfFile> DxfFilePtrT;
-    typedef std::auto_ptr<dispatcher::Dispatcher> DispPtrT;
-    typedef std::auto_ptr<processor::StreamProcessor> ProcPtrT;
+    typedef std::unique_ptr<dispatcher::Dispatcher> DispPtrT;
+    typedef std::unique_ptr<processor::StreamProcessor> ProcPtrT;
   
 protected:
     void SetUp()
     {
-        DxfQueuePtrT tuples;
-        DxfFilePtrT file_ptr = file::DxfFile::open_file(Paths::GOOD_FILENAME);
+        type::DxfQueuePtrT tuples;
+        file::DxfFile::DxfFilePtrT file_ptr = file::DxfFile::open_file(Paths::GOOD_FILENAME);
         tuples = file_ptr->read_file();
         d_ptr = DispPtrT(new dispatcher::Dispatcher(tuples));
         p_ptr = ProcPtrT(new processor::StreamProcessor(sstr));

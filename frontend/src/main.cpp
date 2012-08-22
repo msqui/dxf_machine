@@ -1,13 +1,11 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
-#include <memory>
 #include <exception>
 #include <algorithm>
 
 #include "util/Util.h"
 #include "exception/silent_exit.h"
-namespace f = dm::frontend;
 
 #include "type/types.hpp"
 #include "file/DxfFile.h"
@@ -17,6 +15,9 @@ namespace f = dm::frontend;
 
 #include "model/Model.h"
 #include "model/entities/Entity.h"
+
+using namespace dxf_machine;
+namespace f = frontend;
 
 // ================
 // = Main program =
@@ -51,9 +52,9 @@ int main(int argc, char **argv)
     #endif
     
     // Get tuples from file
-    std::auto_ptr<type::DxfQueueT> tuples;
+    type::DxfQueuePtrT tuples;
     try {
-        std::auto_ptr<file::DxfFile> file_ptr = file::DxfFile::open_file(input_file);
+        file::DxfFile::DxfFilePtrT file_ptr = file::DxfFile::open_file(input_file);
         tuples = file_ptr->read_file();
     } catch (const std::exception& e) {
         std::cout << "Error: " << e.what() << std::endl;

@@ -7,7 +7,8 @@
 
 #include <boost/assign.hpp>
 
-namespace state {
+namespace dxf_machine { namespace state {
+
 namespace sections {
 
 SectionState::PtrT SectionState::_instance = SectionState::PtrT();
@@ -41,5 +42,6 @@ void SectionState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProc
   }
 }
 
-} /* sections */
-} /* state */
+}
+
+}}

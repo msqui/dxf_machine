@@ -6,7 +6,8 @@
 #include "Messages.hpp"
 #include "exception/silent_exit.h"
 
-namespace dm { namespace frontend {
+namespace dxf_machine { namespace frontend {
+
 namespace util {
 
 void Util::parse_options(int argc, char** argv, std::string& input_file)
@@ -54,4 +55,5 @@ std::string Util::usage(const std::string& message, const po::options_descriptio
 }
 
 }
+
 }}

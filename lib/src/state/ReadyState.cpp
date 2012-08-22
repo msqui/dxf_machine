@@ -4,7 +4,7 @@
 
 #include <boost/assign.hpp>
 
-namespace state {
+namespace dxf_machine { namespace state {
 
 ReadyState::PtrT ReadyState::_instance = ReadyState::PtrT();
 
@@ -34,4 +34,4 @@ void ReadyState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProces
   }
 }
 
-} /* state */
+}}

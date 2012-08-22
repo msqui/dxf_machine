@@ -5,14 +5,16 @@
 
 #include "type/types.hpp"
 
-// ====================
-// = Fwd declarations =
-// ====================
-namespace processor {
-  
-  class StatefulProcessor;
-  
-} /* processor */
+namespace dxf_machine {
+
+    // ====================
+    // = Fwd declarations =
+    // ====================
+    namespace processor {
+      
+      class StatefulProcessor;
+      
+    } /* processor */
 
 namespace state {
 
@@ -32,6 +34,8 @@ protected:
   State() {}
 };
 
-} /* state */
+}
 
-#endif /* end of include guard: __STATE__STATE_H__ */
+}
+
+#endif // __STATE__STATE_H__

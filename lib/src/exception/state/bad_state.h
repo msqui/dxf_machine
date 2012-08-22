@@ -1,19 +1,21 @@
-#ifndef __STATE__BAD_STATE_H__
-#define __STATE__BAD_STATE_H__
+#ifndef __EXCEPTION__STATE__BAD_STATE_H__
+#define __EXCEPTION__STATE__BAD_STATE_H__
 
 #include <stdexcept>
 
-namespace exception {
+namespace dxf_machine { namespace exception {
+
 namespace state {
 
 struct bad_state : public std::runtime_error
 {
-  explicit bad_state(const std::string& what) :
-    std::runtime_error(what)
-  {}
+    explicit bad_state(const std::string& what) :
+        std::runtime_error(what)
+    {}
 };
 
-} /* state */
-} /* exception */
+}
 
-#endif /* end of include guard: __STATE__BAD_STATE_H__ */
+}}
+
+#endif // __EXCEPTION__STATE__BAD_STATE_H__

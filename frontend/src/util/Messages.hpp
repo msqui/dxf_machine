@@ -3,7 +3,8 @@
 
 #include <string>
 
-namespace dm { namespace frontend {
+namespace dxf_machine { namespace frontend {
+
 namespace util {
 
 class Messages
@@ -26,6 +27,7 @@ const std::string Messages::long_version = "dxf_machine version: " + Messages::v
 const std::string Messages::no_files_to_process = "No input files to process!\n Now exiting";
 
 }
+
 }}
 
-#endif /* end of include guard: __UTIL__MESSAGES_HPP__ */
+#endif // __UTIL__MESSAGES_HPP__

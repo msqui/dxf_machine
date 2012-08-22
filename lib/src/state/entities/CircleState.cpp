@@ -6,7 +6,8 @@
 
 #include "model/entities/Circle.h"
 
-namespace state {
+namespace dxf_machine { namespace state {
+
 namespace entities {
   
   namespace me = model::entities;
@@ -60,5 +61,6 @@ void CircleState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProce
   }
 }
 
-} /* entities */
-} /* state */
+}
+
+}}

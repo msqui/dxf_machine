@@ -1,6 +1,7 @@
 #include "HeaderSectionState.h"
 
-namespace state {
+namespace dxf_machine { namespace state {
+
 namespace sections {
 
 HeaderSectionState::PtrT HeaderSectionState::_instance = HeaderSectionState::PtrT();
@@ -18,5 +19,6 @@ void HeaderSectionState::process(type::DxfTuplePtrT tuple_ptr, processor::Statef
   SectionState::process(tuple_ptr, p);
 }
 
-} /* sections */
-} /* state */
+}
+
+}}

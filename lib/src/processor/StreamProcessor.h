@@ -5,7 +5,8 @@
 
 #include <iostream>
 
-namespace processor {
+namespace dxf_machine { namespace processor {
+
 /**
  * Takes ostream and dumps all tuples from dispatcher to that stream
 **/
@@ -20,6 +21,6 @@ private:
   std::ostream& _str;
 };
 
-} /* processor */
+}}
 
-#endif /* end of include guard: __PROCESSOR__STREAMPROCESSOR_H__ */
+#endif // __PROCESSOR__STREAMPROCESSOR_H__

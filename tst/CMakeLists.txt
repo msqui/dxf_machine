@@ -6,7 +6,7 @@ include(FindGTest)
 find_package(GTest REQUIRED)
 find_package(Threads)
 
-# add_definitions("-std=c++0x")
+add_definitions("-std=c++0x")
 
 include_directories(
   src

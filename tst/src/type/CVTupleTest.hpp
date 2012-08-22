@@ -9,6 +9,8 @@
 #include "type/CVTuple.hpp"
 #include "type/types.hpp"
 
+using namespace dxf_machine;
+
 namespace {
 
 class CVTupleTest : public ::testing::Test

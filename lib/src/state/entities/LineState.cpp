@@ -6,7 +6,8 @@
 
 #include "model/entities/Line.h"
 
-namespace state {
+namespace dxf_machine { namespace state {
+    
 namespace entities {
   
   namespace me = model::entities;
@@ -74,5 +75,6 @@ void LineState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcess
   }
 }
 
-} /* entities */
-} /* state */
+}
+
+}}

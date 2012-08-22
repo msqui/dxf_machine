@@ -1,11 +1,12 @@
-#ifndef __SECTIONS__SECTIONSTATE_H__
-#define __SECTIONS__SECTIONSTATE_H__
+#ifndef __STATE__SECTIONS__SECTIONSTATE_H__
+#define __STATE__SECTIONS__SECTIONSTATE_H__
 
 #include "state/State.h"
 
 #include <memory>
 
-namespace state {
+namespace dxf_machine { namespace state {
+
 namespace sections {
 
 class SectionState : public state::State
@@ -23,7 +24,8 @@ private:
   static State::JumpMapT _jump_map;
 };
 
-} /* sections */
-} /* state */
+}
 
-#endif /* end of include guard: __SECTIONS__SECTIONSTATE_H__ */
+}}
+
+#endif // __STATE__SECTIONS__SECTIONSTATE_H__

@@ -3,23 +3,24 @@
 
 #include "DxfFile.h"
 
-namespace file {
+namespace dxf_machine { namespace file {
+
 /**
  * Represents binary dxf file
 **/
 class BinaryDxfFile : public DxfFile
 {
 public:
-  friend class DxfFile;
-  
-  std::auto_ptr<type::DxfQueueT> read_file();
+    friend class DxfFile;
+    
+    type::DxfQueuePtrT read_file();
   
 private:
-  explicit BinaryDxfFile(const std::string& filename) :
-    DxfFile(filename)
-  {}
+    explicit BinaryDxfFile(const std::string& filename) :
+        DxfFile(filename)
+    {}
 };
 
-} /* file */
+}}
 
-#endif /* end of include guard: __FILE__BINARYDXFFILE_H__ */
+#endif // __FILE__BINARYDXFFILE_H__

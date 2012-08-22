@@ -9,22 +9,26 @@
 #include "file/DxfFile.h"
 #include "dispatcher/Dispatcher.h"
 
+using namespace dxf_machine;
+
 namespace {
 
 class DispatcherTest : public ::testing::Test
 {
+    typedef std::unique_ptr<dispatcher::Dispatcher> DispPtrT;
+
 protected:
     virtual void SetUp()
     {
-        std::auto_ptr<file::DxfFile> file_ptr =
+        file::DxfFile::DxfFilePtrT file_ptr =
             file::DxfFile::open_file(Paths::GOOD_FILENAME);
-        d_ptr = std::auto_ptr<dispatcher::Dispatcher>(new dispatcher::Dispatcher(file_ptr->read_file()));
+        d_ptr = DispPtrT(new dispatcher::Dispatcher(file_ptr->read_file()));
     }
-    
-    std::auto_ptr<dispatcher::Dispatcher> d_ptr;
+
+    DispPtrT d_ptr;
   
 private:
-    std::auto_ptr<file::DxfFile> file_ptr;
+    file::DxfFile::DxfFilePtrT file_ptr;
 };
 
 TEST_F(DispatcherTest, get)
@@ -41,7 +45,7 @@ TEST_F(DispatcherTest, get)
 
 TEST_F(DispatcherTest, empty)
 {
-    dispatcher::Dispatcher d(std::auto_ptr<type::DxfQueueT>(new type::DxfQueueT));
+    dispatcher::Dispatcher d(type::DxfQueuePtrT(new type::DxfQueueT));
     ASSERT_TRUE(d.empty());
     ASSERT_FALSE(d_ptr->empty());
 }

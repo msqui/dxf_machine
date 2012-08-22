@@ -12,7 +12,8 @@
 
 #include <boost/assign.hpp>
 
-namespace state {
+namespace dxf_machine { namespace state {
+
 namespace sections {
 
   namespace me = model::entities;
@@ -61,5 +62,6 @@ void EntitiesSectionState::process(type::DxfTuplePtrT tuple_ptr, processor::Stat
   }
 }
 
-} /* sections */
-} /* state */
+}
+
+}}

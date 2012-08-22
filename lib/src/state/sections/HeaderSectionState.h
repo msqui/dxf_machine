@@ -1,11 +1,11 @@
-#ifndef __SECTIONS__HEADERSECTIONSTATE_H__
-#define __SECTIONS__HEADERSECTIONSTATE_H__
+#ifndef __STATE__SECTIONS__HEADERSECTIONSTATE_H__
+#define __STATE__SECTIONS__HEADERSECTIONSTATE_H__
 
 #include "SectionState.h"
 
 #include <memory>
 
-namespace state {
+namespace dxf_machine { namespace state {
 namespace sections {
 
 class HeaderSectionState : public SectionState
@@ -20,7 +20,8 @@ private:
   static PtrT _instance;
 };
 
-} /* sections */
-} /* state */
+}
 
-#endif /* end of include guard: __SECTIONS__HEADERSECTIONSTATE_H__ */
+}}
+
+#endif // __STATE__SECTIONS__HEADERSECTIONSTATE_H__

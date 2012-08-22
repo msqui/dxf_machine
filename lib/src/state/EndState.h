@@ -5,7 +5,7 @@
 
 #include <memory>
 
-namespace state {
+namespace dxf_machine { namespace state {
 
 class EndState : public State
 {
@@ -20,6 +20,6 @@ private:
   static PtrT _instance;
 };
 
-} /* state */
+}}
 
-#endif /* end of include guard: __STATE__ENDSTATE_H__ */
+#endif // __STATE__ENDSTATE_H__

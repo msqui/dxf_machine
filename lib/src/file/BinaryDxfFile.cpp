@@ -1,14 +1,14 @@
 #include "BinaryDxfFile.h"
 
-namespace file {
+namespace dxf_machine { namespace file {
 
-std::auto_ptr<type::DxfQueueT>
+type::DxfQueuePtrT
 BinaryDxfFile::read_file()
 {
-  // TODO implement this
-  
-  // read bin file
-  return std::auto_ptr<type::DxfQueueT>(new type::DxfQueueT);
+    // TODO implement this
+    
+    // read bin file
+    return type::DxfQueuePtrT(new type::DxfQueueT);
 }
 
-} /* file */
+}}

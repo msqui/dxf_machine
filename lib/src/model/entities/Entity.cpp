@@ -1,10 +1,12 @@
 #include "Entity.h"
 
-namespace model {
+namespace dxf_machine { namespace model {
+
 namespace entities {
 
 Entity::~Entity()
 {}
 
-} /* entities */
-} /* model */
+}
+
+}}

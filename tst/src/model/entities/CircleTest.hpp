@@ -7,6 +7,8 @@
 
 #include "model/entities/Circle.h"
 
+using namespace dxf_machine;
+
 namespace {
 
 class CircleTest : public ::testing::Test

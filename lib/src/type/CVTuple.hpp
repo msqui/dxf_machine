@@ -5,7 +5,8 @@
 #include <string>
 #include <sstream>
 
-namespace type {
+namespace dxf_machine { namespace type {
+
 /**
  * Code-Value tuple template
 **/
@@ -63,6 +64,6 @@ private:
   ValT _value;
 };
 
-} /* type */
+}}
 
-#endif /* end of include guard: __TYPE__CVTUPLE_HPP__ */
+#endif // __TYPE__CVTUPLE_HPP__

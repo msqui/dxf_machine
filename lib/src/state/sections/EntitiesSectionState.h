@@ -1,5 +1,5 @@
-#ifndef __SECTIONS__ENTITIESSECTIONSTATE_H__
-#define __SECTIONS__ENTITIESSECTIONSTATE_H__
+#ifndef __STATE__SECTIONS__ENTITIESSECTIONSTATE_H__
+#define __STATE__SECTIONS__ENTITIESSECTIONSTATE_H__
 
 #include "SectionState.h"
 
@@ -8,7 +8,8 @@
 #include "model/entities/Entity.h"
 #include "model/entities/EntityFactory.hpp"
 
-namespace state {
+namespace dxf_machine { namespace state {
+
 namespace sections {
 
 class EntitiesSectionState : public SectionState
@@ -31,7 +32,8 @@ private:
   static EntJumpMapT _jump_map;
 };
 
-} /* sections */
-} /* state */
+}
 
-#endif /* end of include guard: __SECTIONS__ENTITIESSECTIONSTATE_H__ */
+}}
+
+#endif // __STATE__SECTIONS__ENTITIESSECTIONSTATE_H__

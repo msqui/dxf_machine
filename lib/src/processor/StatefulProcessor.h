@@ -8,38 +8,42 @@
 #include "model/Model.h"
 #include "model/entities/Entity.h"
 
-// ====================
-// = Fwd declarations =
-// ====================
-namespace state {
+namespace dxf_machine {
 
-  class State;
-
-} /* state */
+    // ====================
+    // = Fwd declarations =
+    // ====================
+    namespace state {
+    
+        class State;
+    
+    }
 
 namespace processor {
 
 class StatefulProcessor : public Processor
 {
 public:
-  explicit StatefulProcessor(state::State* state = NULL);
-  
-  void process_tuple(type::DxfTuplePtrT tuple_ptr);
-  
-  void add_entity(model::entities::Entity* ent);
-  model::entities::Entity& current_entity();
-  
-  model::Model* get_model();
-  
+    explicit StatefulProcessor(state::State* state = NULL);
+    
+    void process_tuple(type::DxfTuplePtrT tuple_ptr);
+    
+    void add_entity(model::entities::Entity* ent);
+    model::entities::Entity& current_entity();
+    
+    model::Model* get_model();
+    
 private:
-  state::State* _current_state;
-  
-  friend class state::State;
-  void change_state(state::State* new_state);
-  
-  std::auto_ptr<model::Model> _model_ptr;
+    state::State* _current_state;
+    
+    friend class state::State;
+    void change_state(state::State* new_state);
+    
+    std::auto_ptr<model::Model> _model_ptr;
 };
 
-} /* processor */
+}
 
-#endif /* end of include guard: __PROCESSOR__STATEFULPROCESSOR_H__ */
+}
+
+#endif // __PROCESSOR__STATEFULPROCESSOR_H__

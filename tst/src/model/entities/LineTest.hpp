@@ -7,6 +7,8 @@
 
 #include "model/entities/Line.h"
 
+using namespace dxf_machine;
+
 namespace {
 
 class LineTest : public ::testing::Test

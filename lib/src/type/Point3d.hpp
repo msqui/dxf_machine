@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-namespace type {
+namespace dxf_machine { namespace type {
 
 template <typename T>
 struct _Point3d
@@ -29,6 +29,6 @@ struct _Point3d
   }
 };
 
-} /* type */
+}}
 
-#endif /* end of include guard: __TYPE__POINT3D_HPP__ */
+#endif // __TYPE__POINT3D_HPP__

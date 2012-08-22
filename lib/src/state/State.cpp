@@ -2,7 +2,7 @@
 
 #include "processor/StatefulProcessor.h"
 
-namespace state {
+namespace dxf_machine { namespace state {
 
 State::~State()
 {}
@@ -18,4 +18,4 @@ void State::change_state(processor::StatefulProcessor* p, State* new_state)
   p->change_state(new_state);
 }
 
-} /* state */
+}}

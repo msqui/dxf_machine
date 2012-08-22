@@ -1,6 +1,7 @@
 #include "EntityState.h"
 
-namespace state {
+namespace dxf_machine { namespace state {
+
 namespace entities {
 
 EntityState::~EntityState()
@@ -23,5 +24,6 @@ void EntityState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProce
   }
 }
 
-} /* entities */
-} /* state */
+}
+
+}}

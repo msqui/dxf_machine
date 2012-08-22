@@ -1,6 +1,6 @@
 #include "EndState.h"
 
-namespace state {
+namespace dxf_machine { namespace state {
 
 EndState::PtrT EndState::_instance = EndState::PtrT();
 
@@ -19,4 +19,4 @@ void EndState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcesso
   #endif
 }
 
-} /* state */
+}}

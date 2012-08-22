@@ -1,10 +1,12 @@
-#ifndef __ENTITIES__ENTITYSTATE_H__
-#define __ENTITIES__ENTITYSTATE_H__
+#ifndef __STATE_ENTITIES__ENTITYSTATE_H__
+#define __STATE_ENTITIES__ENTITYSTATE_H__
 
 #include "state/sections/EntitiesSectionState.h"
 
-namespace state {
+namespace dxf_machine { namespace state {
+    
 namespace entities {
+
 /**
  * ABC of Entities
 **/
@@ -16,7 +18,8 @@ public:
   virtual void process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p) = 0;
 };
 
-} /* entities */
-} /* state */
+}
 
-#endif /* end of include guard: __ENTITIES__ENTITYSTATE_H__ */
+}}
+
+#endif // __STATE_ENTITIES__ENTITYSTATE_H__

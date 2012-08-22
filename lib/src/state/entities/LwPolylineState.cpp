@@ -6,7 +6,8 @@
 
 #include "model/entities/LwPolyline.h"
 
-namespace state {
+namespace dxf_machine { namespace state {
+
 namespace entities {
   
   namespace me = model::entities;
@@ -47,5 +48,6 @@ void LwPolylineState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulP
   }
 }
 
-} /* entities */
-} /* state */
+}
+
+}}

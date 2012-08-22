@@ -1,15 +1,16 @@
 #include "Model.h"
 
-namespace model {
+namespace dxf_machine { namespace model {
 
 Model::Model() :
-  _entities(Model::EntVecPtrT(new Model::EntVecT))
+    _entities(Model::EntVecPtrT(new Model::EntVecT))
 {}
 
 Model::EntVecT*
 Model::entities()
 {
-  return _entities.get();
+    // TODO Danger!!!
+    return _entities.get();
 }
 
-} /* model */
+}}

@@ -7,7 +7,7 @@ find_package(
   REQUIRED filesystem system
 )
 
-# add_definitions("-std=c++0x")
+add_definitions("-std=c++0x")
 
 include_directories(
   src

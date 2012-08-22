@@ -5,7 +5,7 @@
 
 #include <memory>
 
-namespace state {
+namespace dxf_machine { namespace state {
 
 class ReadyState : public State
 {
@@ -22,6 +22,6 @@ private:
   static State::JumpMapT _jump_map;
 };
 
-} /* state */
+}}
 
-#endif /* end of include guard: __STATE__READYSTATE_H__ */
+#endif // __STATE__READYSTATE_H__
