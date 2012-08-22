@@ -3,6 +3,7 @@
 // #include "dxf_machine/state/State.h"
 #include "dxf_machine/state/ReadyState.h"
 #include "dxf_machine/exception/state/bad_state.h"
+#include "dxf_machine/util/Messages.h"
 
 namespace dxf_machine { namespace processor {
 
@@ -41,7 +42,7 @@ model::Model* StatefulProcessor::get_model()
 void StatefulProcessor::change_state(state::State* new_state)
 {
     if (!new_state) {
-        throw exception::state::bad_state("state is null");
+        throw exception::state::bad_state(util::Messages::PROCESSOR_NULL_STATE);
     }
     _current_state = new_state;
 }

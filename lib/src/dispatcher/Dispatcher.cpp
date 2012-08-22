@@ -2,6 +2,8 @@
 
 #include <stdexcept>
 
+#include "dxf_machine/util/Messages.h"
+
 namespace dxf_machine { namespace dispatcher {
 
 Dispatcher::Dispatcher(type::DxfQueuePtrT q_ptr) :
@@ -15,7 +17,7 @@ type::DxfTuplePtrT
 Dispatcher::get() const
 {
     if (_q_ptr->empty()) {
-        throw std::out_of_range("tuple queue is empty");
+        throw std::out_of_range(util::Messages::TUPLE_QUEUE_EMPTY);
     }
     
     return _q_ptr->front();
@@ -29,7 +31,7 @@ bool Dispatcher::empty() const
 void Dispatcher::operator++ ()
 {
     if (_q_ptr->empty()) {
-        throw std::out_of_range("tuple queue is empty");
+        throw std::out_of_range(util::Messages::TUPLE_QUEUE_EMPTY);
     }
     _q_ptr->pop();
 }

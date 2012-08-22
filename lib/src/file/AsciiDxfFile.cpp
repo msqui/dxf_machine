@@ -6,6 +6,7 @@
 #include <boost/lexical_cast.hpp>
 
 #include "dxf_machine/exception/dxf/bad_dxf_file.h"
+#include "dxf_machine/util/Messages.h"
 
 namespace dxf_machine { namespace file {
 
@@ -24,10 +25,10 @@ AsciiDxfFile::read_file()
         try {
             i_code = boost::lexical_cast<int>(s_code);
         } catch (boost::bad_lexical_cast) {
-            throw exception::dxf::bad_dxf_file("DXF file structure corrupted");
+            throw exception::dxf::bad_dxf_file(util::Messages::DXF_BAD_STRUCTURE);
         }
         
-        if (_fstr.eof()) throw exception::dxf::bad_dxf_file("DXF file structure corrupted");
+        if (_fstr.eof()) throw exception::dxf::bad_dxf_file(util::Messages::DXF_BAD_STRUCTURE);
         getline(_fstr, s_value);
         boost::trim(s_value);
         
@@ -37,7 +38,7 @@ AsciiDxfFile::read_file()
     }
     
     if (s_value != "EOF") {
-        throw exception::dxf::bad_dxf_file("DXF file structure corrupted");
+        throw exception::dxf::bad_dxf_file(util::Messages::DXF_BAD_STRUCTURE);
     }
     
     return queue;

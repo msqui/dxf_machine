@@ -10,7 +10,7 @@
 #include <boost/filesystem.hpp>
 
 #include "dxf_machine/exception/file/file_not_found.h"
-
+#include "dxf_machine/util/Messages.h"
 
 namespace dxf_machine { namespace file {
 
@@ -21,7 +21,7 @@ DxfFile::open_file(const std::string& filename)
     if (!boost::filesystem::exists(filename) ||
         boost::filesystem::is_directory(filename))
     {
-        throw exception::file::file_not_found("file doesn't exist");
+        throw exception::file::file_not_found(util::Messages::FILE_NOT_FOUND);
     }
     
     // TODO check ASCII or Binary
