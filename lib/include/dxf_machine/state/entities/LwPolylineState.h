@@ -1,7 +1,7 @@
 #ifndef __STATE__ENTITIES__LWPOLYLINESTATE_H__
 #define __STATE__ENTITIES__LWPOLYLINESTATE_H__
 
-#include "EntityState.h"
+#include "dxf_machine/state/entities/EntityState.h"
 
 #include <memory>
 

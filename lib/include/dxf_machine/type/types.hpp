@@ -4,8 +4,8 @@
 #include <queue>
 #include <memory>
 
-#include "CVTuple.hpp"
-#include "Point3d.hpp"
+#include "dxf_machine/type/CVTuple.hpp"
+#include "dxf_machine/type/Point3d.hpp"
 
 namespace dxf_machine { namespace type {
 

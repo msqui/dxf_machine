@@ -7,7 +7,7 @@
 
 #include <boost/utility.hpp>
 
-#include "type/types.hpp"
+#include "dxf_machine/type/types.hpp"
 
 namespace dxf_machine { namespace file {
 

@@ -1,14 +1,14 @@
-#include "EntitiesSectionState.h"
+#include "dxf_machine/state/sections/EntitiesSectionState.h"
 
-#include "processor/StatefulProcessor.h"
+#include "dxf_machine/processor/StatefulProcessor.h"
 
-#include "state/entities/CircleState.h"
-#include "state/entities/LineState.h"
-#include "state/entities/LwPolylineState.h"
+#include "dxf_machine/state/entities/CircleState.h"
+#include "dxf_machine/state/entities/LineState.h"
+#include "dxf_machine/state/entities/LwPolylineState.h"
 
-#include "model/entities/Circle.h"
-#include "model/entities/Line.h"
-#include "model/entities/LwPolyline.h"
+#include "dxf_machine/model/entities/Circle.h"
+#include "dxf_machine/model/entities/Line.h"
+#include "dxf_machine/model/entities/LwPolyline.h"
 
 #include <boost/assign.hpp>
 

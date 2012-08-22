@@ -1,6 +1,6 @@
-#include "ReadyState.h"
-#include "EndState.h"
-#include "sections/SectionState.h"
+#include "dxf_machine/state/ReadyState.h"
+#include "dxf_machine/state/EndState.h"
+#include "dxf_machine/state/sections/SectionState.h"
 
 #include <boost/assign.hpp>
 

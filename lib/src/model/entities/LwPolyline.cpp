@@ -1,4 +1,4 @@
-#include "LwPolyline.h"
+#include "dxf_machine/model/entities/LwPolyline.h"
 
 #include <algorithm>
 

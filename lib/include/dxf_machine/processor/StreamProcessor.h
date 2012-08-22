@@ -1,7 +1,7 @@
 #ifndef __PROCESSOR__STREAMPROCESSOR_H__
 #define __PROCESSOR__STREAMPROCESSOR_H__
 
-#include "Processor.h"
+#include "dxf_machine/processor/Processor.h"
 
 #include <iostream>
 

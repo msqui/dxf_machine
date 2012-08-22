@@ -1,12 +1,12 @@
 #ifndef __PROCESSOR__STATEFULPROCESSOR_H__
 #define __PROCESSOR__STATEFULPROCESSOR_H__
 
-#include "Processor.h"
+#include "dxf_machine/processor/Processor.h"
 
 #include <memory>
 
-#include "model/Model.h"
-#include "model/entities/Entity.h"
+#include "dxf_machine/model/Model.h"
+#include "dxf_machine/model/entities/Entity.h"
 
 namespace dxf_machine {
 

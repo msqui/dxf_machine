@@ -6,8 +6,8 @@
 #include <memory>
 #include <stdexcept>
 
-#include "file/DxfFile.h"
-#include "dispatcher/Dispatcher.h"
+#include "dxf_machine/file/DxfFile.h"
+#include "dxf_machine/dispatcher/Dispatcher.h"
 
 using namespace dxf_machine;
 

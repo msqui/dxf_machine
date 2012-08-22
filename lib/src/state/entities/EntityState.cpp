@@ -1,4 +1,4 @@
-#include "EntityState.h"
+#include "dxf_machine/state/entities/EntityState.h"
 
 namespace dxf_machine { namespace state {
 

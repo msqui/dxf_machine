@@ -6,8 +6,8 @@
 #include <string>
 #include <sstream>
 
-#include "type/CVTuple.hpp"
-#include "type/types.hpp"
+#include "dxf_machine/type/CVTuple.hpp"
+#include "dxf_machine/type/types.hpp"
 
 using namespace dxf_machine;
 

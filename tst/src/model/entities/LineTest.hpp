@@ -5,7 +5,7 @@
 
 #include <sstream>
 
-#include "model/entities/Line.h"
+#include "dxf_machine/model/entities/Line.h"
 
 using namespace dxf_machine;
 

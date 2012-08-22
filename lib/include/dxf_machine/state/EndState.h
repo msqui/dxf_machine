@@ -1,7 +1,7 @@
 #ifndef __STATE__ENDSTATE_H__
 #define __STATE__ENDSTATE_H__
 
-#include "State.h"
+#include "dxf_machine/state/State.h"
 
 #include <memory>
 

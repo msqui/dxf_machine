@@ -7,14 +7,14 @@
 #include "util/Util.h"
 #include "exception/silent_exit.h"
 
-#include "type/types.hpp"
-#include "file/DxfFile.h"
-#include "dispatcher/Dispatcher.h"
-#include "processor/StreamProcessor.h"
-#include "processor/StatefulProcessor.h"
+#include "dxf_machine/type/types.hpp"
+#include "dxf_machine/file/DxfFile.h"
+#include "dxf_machine/dispatcher/Dispatcher.h"
+#include "dxf_machine/processor/StreamProcessor.h"
+#include "dxf_machine/processor/StatefulProcessor.h"
 
-#include "model/Model.h"
-#include "model/entities/Entity.h"
+#include "dxf_machine/model/Model.h"
+#include "dxf_machine/model/entities/Entity.h"
 
 using namespace dxf_machine;
 namespace f = frontend;

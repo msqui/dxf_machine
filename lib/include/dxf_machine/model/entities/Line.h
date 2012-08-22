@@ -1,9 +1,9 @@
 #ifndef __MODEL__ENTITIES__LINE_H__
 #define __MODEL__ENTITIES__LINE_H__
 
-#include "Entity.h"
+#include "dxf_machine/model/entities/Entity.h"
 
-#include "type/types.hpp"
+#include "dxf_machine/type/types.hpp"
 
 namespace dxf_machine { namespace model {
 

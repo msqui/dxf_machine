@@ -1,7 +1,7 @@
-#include "DxfFile.h"
+#include "dxf_machine/file/DxfFile.h"
 
-#include "AsciiDxfFile.h"
-#include "BinaryDxfFile.h"
+#include "dxf_machine/file/AsciiDxfFile.h"
+#include "dxf_machine/file/BinaryDxfFile.h"
 
 #if defined DEBUG
     #include <iostream>
@@ -9,7 +9,7 @@
 
 #include <boost/filesystem.hpp>
 
-#include "exception/file/file_not_found.h"
+#include "dxf_machine/exception/file/file_not_found.h"
 
 
 namespace dxf_machine { namespace file {

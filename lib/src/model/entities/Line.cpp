@@ -1,4 +1,4 @@
-#include "Line.h"
+#include "dxf_machine/model/entities/Line.h"
 
 namespace dxf_machine { namespace model {
 

@@ -1,10 +1,10 @@
-#include "LineState.h"
+#include "dxf_machine/state/entities/LineState.h"
 
 #include <boost/lexical_cast.hpp>
 
-#include "processor/StatefulProcessor.h"
+#include "dxf_machine/processor/StatefulProcessor.h"
 
-#include "model/entities/Line.h"
+#include "dxf_machine/model/entities/Line.h"
 
 namespace dxf_machine { namespace state {
     

@@ -6,7 +6,7 @@
 #include <boost/utility.hpp>
 #include <boost/ptr_container/ptr_vector.hpp>
 
-#include "entities/Entity.h"
+#include "dxf_machine/model/entities/Entity.h"
 
 namespace dxf_machine { namespace model {
 

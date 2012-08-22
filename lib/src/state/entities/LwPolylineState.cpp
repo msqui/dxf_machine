@@ -1,10 +1,10 @@
-#include "LwPolylineState.h"
+#include "dxf_machine/state/entities/LwPolylineState.h"
 
 #include <boost/lexical_cast.hpp>
 
-#include "processor/StatefulProcessor.h"
+#include "dxf_machine/processor/StatefulProcessor.h"
 
-#include "model/entities/LwPolyline.h"
+#include "dxf_machine/model/entities/LwPolyline.h"
 
 namespace dxf_machine { namespace state {
 

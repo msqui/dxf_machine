@@ -1,7 +1,7 @@
 #ifndef __FILE__BINARYDXFFILE_H__
 #define __FILE__BINARYDXFFILE_H__
 
-#include "DxfFile.h"
+#include "dxf_machine/file/DxfFile.h"
 
 namespace dxf_machine { namespace file {
 

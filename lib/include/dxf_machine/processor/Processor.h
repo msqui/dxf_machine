@@ -1,7 +1,7 @@
 #ifndef __PROCESSOR__PROCESSOR_H__
 #define __PROCESSOR__PROCESSOR_H__
 
-#include "type/types.hpp"
+#include "dxf_machine/type/types.hpp"
 
 namespace dxf_machine {
 

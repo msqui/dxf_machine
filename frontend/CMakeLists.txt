@@ -13,7 +13,7 @@ add_definitions("-std=c++0x")
 
 include_directories(
   src
-  ../${LIB_SUBDIR}/src
+  ../${LIB_SUBDIR}/include
   ${Boost_INCLUDE_DIRS}
 )
 

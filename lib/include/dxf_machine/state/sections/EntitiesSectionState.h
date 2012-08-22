@@ -1,12 +1,12 @@
 #ifndef __STATE__SECTIONS__ENTITIESSECTIONSTATE_H__
 #define __STATE__SECTIONS__ENTITIESSECTIONSTATE_H__
 
-#include "SectionState.h"
+#include "dxf_machine/state/sections/SectionState.h"
 
 #include <memory>
 
-#include "model/entities/Entity.h"
-#include "model/entities/EntityFactory.hpp"
+#include "dxf_machine/model/entities/Entity.h"
+#include "dxf_machine/model/entities/EntityFactory.hpp"
 
 namespace dxf_machine { namespace state {
 

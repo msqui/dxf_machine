@@ -10,7 +10,7 @@ find_package(
 add_definitions("-std=c++0x")
 
 include_directories(
-  src
+  include
   ${Boost_INCLUDE_DIRS}
 )
 
@@ -29,7 +29,6 @@ add_library(${PROJECT_NAME}
   ${source_files}
 )
 
-target_link_libraries(
-  ${PROJECT_NAME}
+target_link_libraries(${PROJECT_NAME}
   ${Boost_LIBRARIES}
 )

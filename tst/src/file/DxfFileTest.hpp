@@ -3,10 +3,10 @@
 
 #include <gtest/gtest.h>
 
-#include "file/DxfFile.h"
-#include "type/types.hpp"
-#include "exception/file/file_not_found.h"
-#include "exception/dxf/bad_dxf_file.h"
+#include "dxf_machine/file/DxfFile.h"
+#include "dxf_machine/type/types.hpp"
+#include "dxf_machine/exception/file/file_not_found.h"
+#include "dxf_machine/exception/dxf/bad_dxf_file.h"
 
 #include "Paths.hpp"
 

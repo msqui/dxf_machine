@@ -1,6 +1,6 @@
-#include "State.h"
+#include "dxf_machine/state/State.h"
 
-#include "processor/StatefulProcessor.h"
+#include "dxf_machine/processor/StatefulProcessor.h"
 
 namespace dxf_machine { namespace state {
 

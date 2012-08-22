@@ -5,7 +5,7 @@
 
 #include <sstream>
 
-#include "model/entities/LwPolyline.h"
+#include "dxf_machine/model/entities/LwPolyline.h"
 
 using namespace dxf_machine;
 

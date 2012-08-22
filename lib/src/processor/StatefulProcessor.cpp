@@ -1,8 +1,8 @@
-#include "StatefulProcessor.h"
+#include "dxf_machine/processor/StatefulProcessor.h"
 
-// #include "state/State.h"
-#include "state/ReadyState.h"
-#include "exception/state/bad_state.h"
+// #include "dxf_machine/state/State.h"
+#include "dxf_machine/state/ReadyState.h"
+#include "dxf_machine/exception/state/bad_state.h"
 
 namespace dxf_machine { namespace processor {
 

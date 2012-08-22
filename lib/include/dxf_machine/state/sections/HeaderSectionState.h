@@ -1,7 +1,7 @@
 #ifndef __STATE__SECTIONS__HEADERSECTIONSTATE_H__
 #define __STATE__SECTIONS__HEADERSECTIONSTATE_H__
 
-#include "SectionState.h"
+#include "dxf_machine/state/sections/SectionState.h"
 
 #include <memory>
 

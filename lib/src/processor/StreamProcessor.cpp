@@ -1,4 +1,4 @@
-#include "StreamProcessor.h"
+#include "dxf_machine/processor/StreamProcessor.h"
 
 namespace dxf_machine { namespace processor {
 

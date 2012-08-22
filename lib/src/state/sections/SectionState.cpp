@@ -1,9 +1,9 @@
-#include "SectionState.h"
+#include "dxf_machine/state/sections/SectionState.h"
 
-#include "state/ReadyState.h"
+#include "dxf_machine/state/ReadyState.h"
 
-#include "HeaderSectionState.h"
-#include "EntitiesSectionState.h"
+#include "dxf_machine/state/sections/HeaderSectionState.h"
+#include "dxf_machine/state/sections/EntitiesSectionState.h"
 
 #include <boost/assign.hpp>
 

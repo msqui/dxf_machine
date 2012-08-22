@@ -1,6 +1,6 @@
-#include "Processor.h"
+#include "dxf_machine/processor/Processor.h"
 
-#include "dispatcher/Dispatcher.h"
+#include "dxf_machine/dispatcher/Dispatcher.h"
 
 namespace dxf_machine { namespace processor {
 

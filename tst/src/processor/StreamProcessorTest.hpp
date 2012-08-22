@@ -8,11 +8,11 @@
 #include <sstream>
 #include <string>
 
-#include "processor/StreamProcessor.h"
+#include "dxf_machine/processor/StreamProcessor.h"
 
-#include "type/types.hpp"
-#include "file/DxfFile.h"
-#include "dispatcher/Dispatcher.h"
+#include "dxf_machine/type/types.hpp"
+#include "dxf_machine/file/DxfFile.h"
+#include "dxf_machine/dispatcher/Dispatcher.h"
 
 #include "Paths.hpp"
 

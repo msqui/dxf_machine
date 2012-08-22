@@ -1,13 +1,13 @@
 #ifndef __MODEL__ENTITIES__LWPOLYLINE_H__
 #define __MODEL__ENTITIES__LWPOLYLINE_H__
 
-#include "Entity.h"
+#include "dxf_machine/model/entities/Entity.h"
 
 #include <vector>
 #include <iostream>
 #include <functional>
 
-#include "type/types.hpp"
+#include "dxf_machine/type/types.hpp"
 
 namespace dxf_machine { namespace model {
 

@@ -1,10 +1,10 @@
-#include "CircleState.h"
+#include "dxf_machine/state/entities/CircleState.h"
 
 #include <boost/lexical_cast.hpp>
 
-#include "processor/StatefulProcessor.h"
+#include "dxf_machine/processor/StatefulProcessor.h"
 
-#include "model/entities/Circle.h"
+#include "dxf_machine/model/entities/Circle.h"
 
 namespace dxf_machine { namespace state {
 

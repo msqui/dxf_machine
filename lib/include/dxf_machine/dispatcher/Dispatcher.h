@@ -3,7 +3,7 @@
 
 #include <boost/utility.hpp>
 
-#include "type/types.hpp"
+#include "dxf_machine/type/types.hpp"
 
 namespace dxf_machine { namespace dispatcher {
 /**
@@ -17,7 +17,7 @@ public:
     
     type::DxfTuplePtrT get() const;
     bool empty() const;
-    
+
     void operator++ ();
     type::DxfTuplePtrT operator++ (int);
   

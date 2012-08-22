@@ -1,7 +1,7 @@
 #ifndef __MODEL__ENTITIES__ENTITYFACTORY_HPP__
 #define __MODEL__ENTITIES__ENTITYFACTORY_HPP__
 
-#include "Entity.h"
+#include "dxf_machine/model/entities/Entity.h"
 
 namespace dxf_machine { namespace model {
 

@@ -1,11 +1,11 @@
-#include "AsciiDxfFile.h"
+#include "dxf_machine/file/AsciiDxfFile.h"
 
 #include <string>
 
 #include <boost/algorithm/string.hpp>
 #include <boost/lexical_cast.hpp>
 
-#include "exception/dxf/bad_dxf_file.h"
+#include "dxf_machine/exception/dxf/bad_dxf_file.h"
 
 namespace dxf_machine { namespace file {
 

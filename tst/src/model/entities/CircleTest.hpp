@@ -5,7 +5,7 @@
 
 #include <sstream>
 
-#include "model/entities/Circle.h"
+#include "dxf_machine/model/entities/Circle.h"
 
 using namespace dxf_machine;
 

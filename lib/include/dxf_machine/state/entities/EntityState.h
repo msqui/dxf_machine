@@ -1,7 +1,7 @@
 #ifndef __STATE_ENTITIES__ENTITYSTATE_H__
 #define __STATE_ENTITIES__ENTITYSTATE_H__
 
-#include "state/sections/EntitiesSectionState.h"
+#include "dxf_machine/state/sections/EntitiesSectionState.h"
 
 namespace dxf_machine { namespace state {
     
