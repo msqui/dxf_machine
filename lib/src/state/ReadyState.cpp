@@ -2,17 +2,15 @@
 #include "dxf_machine/state/EndState.h"
 #include "dxf_machine/state/sections/SectionState.h"
 
-#include <boost/assign.hpp>
-
 namespace dxf_machine { namespace state {
 
 ReadyState::PtrT ReadyState::_instance = ReadyState::PtrT();
 
 State::JumpMapT
-ReadyState::_jump_map = boost::assign::map_list_of<type::DxfTupleT, state::State*>
-  (type::DxfTupleT(0, "SECTION"), sections::SectionState::Instance())
-  (type::DxfTupleT(0, "EOF"), EndState::Instance())
-  ;
+ReadyState::_jump_map = {
+    {type::DxfTupleT(0, "SECTION"), sections::SectionState::Instance()},
+    {type::DxfTupleT(0, "EOF"), EndState::Instance()}
+};
 
 ReadyState* ReadyState::Instance()
 {

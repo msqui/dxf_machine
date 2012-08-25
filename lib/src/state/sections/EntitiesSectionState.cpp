@@ -10,8 +10,6 @@
 #include "dxf_machine/model/entities/Line.h"
 #include "dxf_machine/model/entities/LwPolyline.h"
 
-#include <boost/assign.hpp>
-
 namespace dxf_machine { namespace state {
 
 namespace sections {
@@ -22,23 +20,23 @@ namespace sections {
 EntitiesSectionState::PtrT EntitiesSectionState::_instance = EntitiesSectionState::PtrT();
 
 EntitiesSectionState::EntJumpMapT
-EntitiesSectionState::_jump_map = boost::assign::map_list_of<type::DxfTupleT, std::pair<State*, me::EntityFactoryBase*> >
-  (type::DxfTupleT(0, "CIRCLE"),
-      std::make_pair<State*, me::EntityFactoryBase*>(
-        se::CircleState::Instance(),
-        new me::EntityFactory<me::Circle>)
-  )
-  (type::DxfTupleT(0, "LINE"),
-      std::make_pair<State*, me::EntityFactoryBase*>(
-        se::LineState::Instance(),
-        new me::EntityFactory<me::Line>)
-  )
-  (type::DxfTupleT(0, "LWPOLYLINE"),
-      std::make_pair<State*, me::EntityFactoryBase*>(
-        se::LwPolylineState::Instance(),
-        new me::EntityFactory<me::LwPolyline>)
-  )
-  ;
+EntitiesSectionState::_jump_map = {
+    {type::DxfTupleT(0, "CIRCLE"),
+        std::make_pair<State*, me::EntityFactoryBase*>(
+                se::CircleState::Instance(),
+                new me::EntityFactory<me::Circle>)
+    },
+    {type::DxfTupleT(0, "LINE"),
+        std::make_pair<State*, me::EntityFactoryBase*>(
+                se::LineState::Instance(),
+                new me::EntityFactory<me::Line>)
+    },
+    {type::DxfTupleT(0, "LWPOLYLINE"),
+        std::make_pair<State*, me::EntityFactoryBase*>(
+                se::LwPolylineState::Instance(),
+                new me::EntityFactory<me::LwPolyline>)
+    }
+};
 
 EntitiesSectionState::~EntitiesSectionState()
 {}
