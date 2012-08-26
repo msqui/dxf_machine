@@ -12,25 +12,24 @@ namespace dxf_machine { namespace state {
 
 namespace sections {
 
-  namespace me = model::entities;
   namespace se = state::entities;
 
 EntitiesSectionState::EntJumpMapT
 EntitiesSectionState::_jump_map = {
     { type::DxfTupleT(0, "CIRCLE"),
-        std::make_pair<State::PtrT, me::EntityFactoryBase*>(
+        std::make_pair<State::PtrT, me::FactoryPtrT >(
                 State::Instance<se::CircleState>(),
-                new me::EntityFactory<me::Circle>)
+                me::EntityFactory<me::Circle>::Instance() )
     },
     { type::DxfTupleT(0, "LINE"),
-        std::make_pair<State::PtrT, me::EntityFactoryBase*>(
+        std::make_pair<State::PtrT, me::FactoryPtrT >(
                 State::Instance<se::LineState>(),
-                new me::EntityFactory<me::Line>)
+                me::EntityFactory<me::Line>::Instance() )
     },
     { type::DxfTupleT(0, "LWPOLYLINE"),
-        std::make_pair<State::PtrT, me::EntityFactoryBase*>(
+        std::make_pair<State::PtrT, me::FactoryPtrT >(
                 State::Instance<se::LwPolylineState>(),
-                new me::EntityFactory<me::LwPolyline>)
+                me::EntityFactory<me::LwPolyline>::Instance() )
     }
 };
 

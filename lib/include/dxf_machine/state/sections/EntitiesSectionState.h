@@ -10,6 +10,8 @@ namespace dxf_machine { namespace state {
 
 namespace sections {
 
+    namespace me = model::entities;
+
 class EntitiesSectionState : public SectionState
 {
 public:
@@ -19,8 +21,10 @@ public:
   
 private:
     // static State::JumpMapT _jump_map;
-    typedef std::map<type::DxfTupleT,
-                    std::pair<State::PtrT, model::entities::EntityFactoryBase*> > EntJumpMapT;
+    typedef std::map<   type::DxfTupleT,
+                        std::pair<  State::PtrT,
+                                    me::FactoryPtrT >
+                    > EntJumpMapT;
     typedef EntJumpMapT::const_iterator EntJumpIterT;
     
     static EntJumpMapT _jump_map;
