@@ -10,7 +10,7 @@ EntityState::~EntityState()
 /**
  * Default process tuple realisation
 **/
-void EntityState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p)
+void EntityState::process(State::ProcPtrT proc, type::DxfTuplePtrT tuple_ptr)
 {
   switch (tuple_ptr->code()) {
     case 8:
@@ -19,7 +19,7 @@ void EntityState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProce
       #endif
       break;
     default:
-      sections::EntitiesSectionState::process(tuple_ptr, p);
+      sections::EntitiesSectionState::process(proc, tuple_ptr);
       break;
   }
 }

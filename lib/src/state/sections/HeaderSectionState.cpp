@@ -4,19 +4,9 @@ namespace dxf_machine { namespace state {
 
 namespace sections {
 
-HeaderSectionState::PtrT HeaderSectionState::_instance = HeaderSectionState::PtrT();
-
-HeaderSectionState* HeaderSectionState::Instance()
+void HeaderSectionState::process(State::ProcPtrT proc, type::DxfTuplePtrT tuple_ptr)
 {
-  if (!_instance.get()) {
-    _instance = HeaderSectionState::PtrT(new HeaderSectionState);
-  }
-  return _instance.get();
-}
-
-void HeaderSectionState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p)
-{
-  SectionState::process(tuple_ptr, p);
+    SectionState::process(proc, tuple_ptr);
 }
 
 }

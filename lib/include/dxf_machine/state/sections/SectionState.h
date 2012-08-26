@@ -3,8 +3,6 @@
 
 #include "dxf_machine/state/State.h"
 
-#include <memory>
-
 namespace dxf_machine { namespace state {
 
 namespace sections {
@@ -12,16 +10,12 @@ namespace sections {
 class SectionState : public state::State
 {
 public:
-  virtual ~SectionState();
-  
-  static SectionState* Instance();
-  
-  virtual void process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p);
-  
+    virtual ~SectionState();
+    
+    virtual void process(State::ProcPtrT proc, type::DxfTuplePtrT tuple_ptr);
+    
 private:
-  typedef std::auto_ptr<SectionState> PtrT;
-  static PtrT _instance;
-  static State::JumpMapT _jump_map;
+    static State::JumpMapT _jump_map;
 };
 
 }

@@ -7,39 +7,38 @@
 
 namespace dxf_machine { namespace processor {
 
-StatefulProcessor::StatefulProcessor(state::State* state) :
-    _model_ptr(std::auto_ptr<model::Model>(new model::Model))
+StatefulProcessor::PtrT
+StatefulProcessor::Instance(StatefulProcessor::StatePtrT state)
+{
+    return StatefulProcessor::PtrT(new StatefulProcessor(state));
+}
+
+StatefulProcessor::StatefulProcessor(StatePtrT state)
 {
     if (state) {
         _current_state = state;
     } else {
-        _current_state = state::ReadyState::Instance();
+        _current_state = state::State::Instance<state::ReadyState>();
     }
 }
 
 void StatefulProcessor::process_tuple(type::DxfTuplePtrT tuple_ptr)
 {
-    assert(_model_ptr.get() != NULL);
-    _current_state->process(tuple_ptr, this);
+    _current_state->process(shared_from_this(), tuple_ptr);
 }
 
-void StatefulProcessor::add_entity(model::entities::Entity* ent)
+void StatefulProcessor::add_entity(model::entities::Entity::PtrT ent)
 {
-    _model_ptr->entities()->push_back(ent);
+    _model_ptr->entities->push_back(ent);
 }
 
-model::entities::Entity& StatefulProcessor::current_entity()
+model::entities::Entity::PtrT
+StatefulProcessor::current_entity()
 {
-    return _model_ptr->entities()->back();
+    return _model_ptr->entities->back();
 }
 
-model::Model* StatefulProcessor::get_model()
-{
-    assert(_model_ptr.get() != NULL);
-    return _model_ptr.release();
-}
-
-void StatefulProcessor::change_state(state::State* new_state)
+void StatefulProcessor::change_state(state::State::PtrT new_state)
 {
     if (!new_state) {
         throw exception::state::bad_state(util::Messages::PROCESSOR_NULL_STATE);

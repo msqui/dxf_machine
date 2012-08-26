@@ -3,8 +3,6 @@
 
 #include "dxf_machine/state/entities/EntityState.h"
 
-#include <memory>
-
 namespace dxf_machine { namespace state {
 
 namespace entities {
@@ -12,14 +10,7 @@ namespace entities {
 class LineState : public EntityState
 {
 public:
-  static LineState* Instance();
-  
-  void process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p);
-  
-private:
-  typedef std::auto_ptr<LineState> PtrT;
-  
-  static PtrT _instance;
+    void process(State::ProcPtrT proc, type::DxfTuplePtrT tuple_ptr);
 };
 
 }

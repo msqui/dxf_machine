@@ -3,21 +3,12 @@
 
 #include "dxf_machine/state/State.h"
 
-#include <memory>
-
 namespace dxf_machine { namespace state {
 
 class EndState : public State
 {
-public:
-  static EndState* Instance();
-  
-  virtual void process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor*);
-  
 private:
-  typedef std::auto_ptr<EndState> PtrT;
-  
-  static PtrT _instance;
+    virtual void process(ProcPtrT proc, type::DxfTuplePtrT tuple_ptr);
 };
 
 }}

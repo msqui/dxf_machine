@@ -15,7 +15,7 @@ class EntityState : public sections::EntitiesSectionState
 public:
   virtual ~EntityState();
   
-  virtual void process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p) = 0;
+  virtual void process(State::ProcPtrT proc, type::DxfTuplePtrT tuple_ptr) = 0;
 };
 
 }

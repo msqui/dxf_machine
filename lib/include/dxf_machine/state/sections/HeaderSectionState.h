@@ -3,21 +3,13 @@
 
 #include "dxf_machine/state/sections/SectionState.h"
 
-#include <memory>
-
 namespace dxf_machine { namespace state {
 namespace sections {
 
 class HeaderSectionState : public SectionState
 {
 public:
-  static HeaderSectionState* Instance();
-  
-  void process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p);
-  
-private:
-  typedef std::auto_ptr<HeaderSectionState> PtrT;
-  static PtrT _instance;
+    void process(State::ProcPtrT proc, type::DxfTuplePtrT tuple_ptr);
 };
 
 }

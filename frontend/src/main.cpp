@@ -7,14 +7,7 @@
 #include "util/Util.h"
 #include "exception/silent_exit.h"
 
-#include "dxf_machine/type/types.hpp"
-#include "dxf_machine/file/DxfFile.h"
-#include "dxf_machine/dispatcher/Dispatcher.h"
-#include "dxf_machine/processor/StreamProcessor.h"
-#include "dxf_machine/processor/StatefulProcessor.h"
-
-#include "dxf_machine/model/Model.h"
-#include "dxf_machine/model/entities/Entity.h"
+#include "dxf_machine/Machine.hpp"
 
 using namespace dxf_machine;
 namespace f = frontend;
@@ -51,29 +44,17 @@ int main(int argc, char **argv)
         std::cout << "Dxf Machine started." << std::endl;
     #endif
     
-    // Get tuples from file
-    type::DxfQueuePtrT tuples;
-    try {
-        file::DxfFile::DxfFilePtrT file_ptr = file::DxfFile::open_file(input_file);
-        tuples = file_ptr->read_file();
-    } catch (const std::exception& e) {
-        std::cout << "Error: " << e.what() << std::endl;
-        return EXIT_FAILURE;
-    }
+    typedef Machine<> MachineT;
+
     
-    // Process tuples
-    dispatcher::Dispatcher d(tuples);
-    // processor::StreamProcessor p(std::cout);
-    processor::StatefulProcessor p;
-    p.start(d);
-    
-    // Show model
-    model::Model* model = p.get_model();
+    MachineT m;
+    MachineT::ModelPtrT model = m.process(input_file);
+
     std::cout << "Result:" << std::endl;
-    std::for_each(model->entities()->begin(), model->entities()->end(),
-            [](const model::entities::Entity& ent) {
-                std::cout << ent << std::endl;
+    std::for_each(model->entities->begin(), model->entities->end(),
+            [](const MachineT::ModelT::EntityT::PtrT ent) {
+                std::cout << *ent << std::endl;
             });
-    
+
     return EXIT_SUCCESS;
 }

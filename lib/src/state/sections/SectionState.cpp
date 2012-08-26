@@ -9,34 +9,24 @@ namespace dxf_machine { namespace state {
 
 namespace sections {
 
-SectionState::PtrT SectionState::_instance = SectionState::PtrT();
-
 State::JumpMapT
 SectionState::_jump_map = {
-    { type::DxfTupleT(2, "HEADER"),   HeaderSectionState::Instance() },
-    { type::DxfTupleT(2, "ENTITIES"), EntitiesSectionState::Instance() },
-    { type::DxfTupleT(0, "ENDSEC"),   ReadyState::Instance() }
+    { type::DxfTupleT(2, "HEADER"),   State::Instance<HeaderSectionState>() },
+    { type::DxfTupleT(2, "ENTITIES"), State::Instance<EntitiesSectionState>() },
+    { type::DxfTupleT(0, "ENDSEC"),   State::Instance<ReadyState>() }
 };
 
 SectionState::~SectionState()
 {}
 
-SectionState* SectionState::Instance()
-{
-    if (!_instance.get()) {
-        _instance = SectionState::PtrT(new SectionState);
-    }
-    return _instance.get();
-}
-
-void SectionState::process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p)
+void SectionState::process(State::ProcPtrT proc, type::DxfTuplePtrT tuple_ptr)
 {
     // Select section to which send tuple
     State::JumpIterT map_it = _jump_map.find(*tuple_ptr);
     if (map_it != _jump_map.end()) {
-        change_state(p, map_it->second);
+        change_state(proc, map_it->second);
     } else {
-        State::process(tuple_ptr, p);
+        State::process(proc, tuple_ptr);
     }
 }
 

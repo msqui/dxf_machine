@@ -9,15 +9,15 @@ namespace entities {
 
 struct EntityFactoryBase
 {
-    virtual Entity* create() = 0;
+    virtual Entity::PtrT create() = 0;
 };
 
 template <typename T>
 struct EntityFactory : public EntityFactoryBase
 {
-    T* create()
+    Entity::PtrT create()
     {
-        return new T;
+        return Entity::PtrT(new T);
     }
 };
 

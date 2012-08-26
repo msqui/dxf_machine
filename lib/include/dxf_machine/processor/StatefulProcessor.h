@@ -14,32 +14,34 @@ namespace dxf_machine {
     // = Fwd declarations =
     // ====================
     namespace state {
-    
         class State;
-    
     }
 
 namespace processor {
 
-class StatefulProcessor : public Processor
+class StatefulProcessor : public Processor,
+                        public std::enable_shared_from_this<StatefulProcessor>
 {
+    typedef std::shared_ptr<state::State> StatePtrT;
+
 public:
-    explicit StatefulProcessor(state::State* state = NULL);
+    typedef std::shared_ptr<StatefulProcessor> PtrT;
     
-    void process_tuple(type::DxfTuplePtrT tuple_ptr);
-    
-    void add_entity(model::entities::Entity* ent);
-    model::entities::Entity& current_entity();
-    
-    model::Model* get_model();
+    static PtrT Instance(StatePtrT state = nullptr);
     
 private:
-    state::State* _current_state;
+    StatefulProcessor(StatePtrT state = nullptr);
+
+    StatePtrT _current_state;
     
     friend class state::State;
-    void change_state(state::State* new_state);
+    void change_state(StatePtrT new_state);
     
-    std::auto_ptr<model::Model> _model_ptr;
+    void process_tuple(type::DxfTuplePtrT tuple_ptr);
+
+    void add_entity(model::entities::Entity::PtrT ent);
+    model::entities::Entity::PtrT current_entity();
+    
 };
 
 }

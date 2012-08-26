@@ -1,10 +1,10 @@
 #ifndef __MODEL__MODEL_H__
 #define __MODEL__MODEL_H__
 
+#include <vector>
 #include <memory>
 
 #include <boost/utility.hpp>
-#include <boost/ptr_container/ptr_vector.hpp>
 
 #include "dxf_machine/model/entities/Entity.h"
 
@@ -13,18 +13,15 @@ namespace dxf_machine { namespace model {
 /**
  * struct of object collections
 **/
-class Model : private boost::noncopyable
+struct Model : private boost::noncopyable
 {
-public:
-    typedef boost::ptr_vector<entities::Entity> EntVecT;
-    typedef std::unique_ptr<EntVecT> EntVecPtrT;
+    typedef entities::Entity EntityT;
+    typedef std::vector<EntityT::PtrT> EntVecT;
+    typedef std::shared_ptr<EntVecT> EntVecPtrT;
     
     Model();
     
-    EntVecT* entities();
-    
-private:
-    EntVecPtrT _entities;
+    EntVecPtrT entities;
 };
 
 }}

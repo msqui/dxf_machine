@@ -3,8 +3,6 @@
 
 #include "dxf_machine/state/sections/SectionState.h"
 
-#include <memory>
-
 #include "dxf_machine/model/entities/Entity.h"
 #include "dxf_machine/model/entities/EntityFactory.hpp"
 
@@ -15,21 +13,17 @@ namespace sections {
 class EntitiesSectionState : public SectionState
 {
 public:
-  virtual ~EntitiesSectionState();
-  
-  static EntitiesSectionState* Instance();
-  
-  void process(type::DxfTuplePtrT tuple_ptr, processor::StatefulProcessor* p);
+    virtual ~EntitiesSectionState();
+    
+    void process(State::ProcPtrT proc, type::DxfTuplePtrT tuple_ptr);
   
 private:
-  typedef std::auto_ptr<EntitiesSectionState> PtrT;
-  static PtrT _instance;
-  
-  // static State::JumpMapT _jump_map;
-  typedef std::map<type::DxfTupleT, std::pair<State*, model::entities::EntityFactoryBase*> > EntJumpMapT;
-  typedef EntJumpMapT::const_iterator EntJumpIterT;
-  
-  static EntJumpMapT _jump_map;
+    // static State::JumpMapT _jump_map;
+    typedef std::map<type::DxfTupleT,
+                    std::pair<State::PtrT, model::entities::EntityFactoryBase*> > EntJumpMapT;
+    typedef EntJumpMapT::const_iterator EntJumpIterT;
+    
+    static EntJumpMapT _jump_map;
 };
 
 }
